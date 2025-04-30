@@ -1,0 +1,22 @@
+.landingText {
+  width: 45%;
+  margin-top: 13%;
+
+  display: flex;
+  gap: 33px;
+  flex-direction: column;
+  align-items: flex-start;
+
+  &__subtitle {
+    color: #ccc;
+    width: 80%;
+  }
+}
+
+.highlight {
+  color: #bc13fe;
+}
+
+.ssss {
+  font-weight: 800;
+}

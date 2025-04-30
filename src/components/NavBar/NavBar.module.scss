@@ -1,0 +1,33 @@
+@use "../../styles/utils/functions" as *;
+@use "../../styles/utils/variables" as *;
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-block: toRem(40);
+
+  &__logo {
+    height: toRem(30);
+  }
+
+  &__nav {
+    display: flex;
+    gap: toRem(15);
+
+    a {
+      color: white;
+      font-weight: $semiBold;
+      border-radius: toRem(6);
+
+      transition: all $transitionDuration;
+
+      &:hover {
+        background-color: rgba(217, 0, 173, 0.3);
+        color: #fff;
+        box-shadow: 1px 1px 54px 9px rgba(217, 0, 173, 0.3);
+      }
+    }
+  }
+}

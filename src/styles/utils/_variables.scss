@@ -1,0 +1,32 @@
+//# кольори, шрифти, змінні
+
+$primary-color: #171717;
+$neon-violet-color: #9a34e8;
+$main-yellow: #f2b700;
+
+
+// ========================= Weight =========================//
+
+$thin: 100;
+$extralight: 250;
+$regular: 400;
+// $medium: 500;
+$semiBold: 600;
+$extraBold: 800;
+
+
+//========================= Hover =========================//
+
+$mouseDevice: '(hover: hover) and (pointer: fine)'; // Mouse devices
+$touchDevice: '(hover: none) and (pointer: coarse)'; // Touch devices
+
+
+//========================= Animation =========================//
+
+$transitionDuration: 0.3s;
+$transformScale: scale(1.05);
+
+//========================= Screen =========================//
+
+$tablet: 640px;
+$desktop: 1200px;
