@@ -5,6 +5,7 @@ import { NavBar } from "@components/NavBar";
 function Header() {
   return (
     <>
+      <div className={style.bg}></div>
       <div className={style.header}>
         <NavBar />
         <HeaderContent />
