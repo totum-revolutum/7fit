@@ -1,4 +1,4 @@
-import { aboutText } from "@constants/about";
+  import { aboutText } from "@constants/about";
 import styles from "./About.module.scss";
 import AboutSlider from "./AboutSlider/AboutSlider";
 
