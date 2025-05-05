@@ -1,0 +1,26 @@
+.sliderWrapper {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.swiper {
+  padding: 20px 0;
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+  }
+
+  .swiper-slide {
+    opacity: 0.5;
+    transform: scale(0.9);
+    transition: all 0.3s ease;
+  }
+
+  .swiper-slide-active {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}

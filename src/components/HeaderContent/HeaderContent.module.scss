@@ -1,3 +1,6 @@
+@use "@styles/utils/variables" as *;
+@use "@styles/utils/functions" as *;
+
 .landingText {
   width: 45%;
   margin-top: 13%;
@@ -10,13 +13,24 @@
   &__subtitle {
     color: #ccc;
     width: 80%;
+
+    &__line {
+      display: flex;
+      align-items: flex-start;
+      gap: toRem(8);
+      margin-bottom: toRem(12);
+
+      svg {
+        flex-shrink: 0;
+        color: $neon-violet-color;
+        width: toRem(16);
+        height: toRem(16);
+        margin-block: 1px;
+      }
+    }
   }
 }
 
 .highlight {
   color: #bc13fe;
-}
-
-.ssss {
-  font-weight: 800;
 }

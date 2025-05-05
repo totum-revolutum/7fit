@@ -2,18 +2,18 @@
 @use "@styles/utils/functions" as *;
 
 .container {
-  padding-left: toRem(20);
-  padding-right: toRem(20);
+  padding-left: toRem(40);
+  padding-right: toRem(40);
   margin: 0 auto;
   max-width: 1440px;
 
   @media (min-width: $tablet) {
-    padding-left: toRem(40);
-    padding-right: toRem(40);
+    padding-left: toRem(70);
+    padding-right: toRem(70);
   }
 
   @media (min-width: $desktop) {
-    padding-left: toRem(80);
-    padding-right: toRem(80);
+    padding-left: toRem(96);
+    padding-right: toRem(96);
   }
 }

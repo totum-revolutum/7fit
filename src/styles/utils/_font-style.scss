@@ -2,28 +2,39 @@
 @use "./functions" as *;
 
 .style-main_title {
+  font-size: toRem(50);
+  line-height: toRem(41);
   font-weight: $extraBold;
-  font-size: toRem(80);
-  line-height: toRem(70);
-  letter-spacing: -0.01em;
 
-  @media (max-width: 640px) {
-    font-size: toRem(50);
-    line-height: toRem(41);
+  @media (min-width: $tablet) {
+    font-size: toRem(56);
+    line-height: toRem(48);
+    font-weight: $extraBold;
   }
 }
 
-// .style-h1 {
-//   font-weight: $extraBold;
-//   font-size: toRem(48);
-//   line-height: toRem(56);
-//   letter-spacing: -0.01em;
+.style_main_subtitle {
+  font-weight: $semiBold;
+  font-size: toRem(18);
+  line-height: toRem(18);
 
-//   @media (max-width: 640px) {
-//     font-size: toRem(32);
-//     line-height: toRem(41);
-//   }
-// }
+  @media (max-width: 640px) {
+    font-size: toRem(16);
+    line-height: toRem(20);
+  }
+}
+
+.style-h1 {
+  font-weight: $extraBold;
+  font-size: toRem(48);
+  line-height: toRem(56);
+  letter-spacing: -0.01em;
+
+  @media (max-width: 640px) {
+    font-size: toRem(32);
+    line-height: toRem(41);
+  }
+}
 
 .style-h2 {
   font-weight: $extraBold;

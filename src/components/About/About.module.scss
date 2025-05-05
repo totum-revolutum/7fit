@@ -1,0 +1,36 @@
+.aboutSection {
+  margin-block: 50px;
+}
+
+.headline {
+  margin-bottom: 50px;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+
+  &__benefits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    &__item {
+      flex: 1 1 calc(50% - 10px); // два блоки в ряд з урахуванням gap
+      background-color: #1e1e1e;
+      color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      &__item {
+        flex: 1 1 100%;
+      }
+    }
+  }
+}
