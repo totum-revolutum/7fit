@@ -1,24 +1,29 @@
+@use "@styles/utils/variables" as *;
+@use "@styles/utils/functions" as *;
+
 .aboutSection {
-  margin-block: 50px;
+  margin-block: toRem(95);
 }
 
 .headline {
-  margin-bottom: 50px;
+  margin-bottom: toRem(65);
 }
 
 .info {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 30px;
+  gap: toRem(50);
 
   &__benefits {
+    width: 50%;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    font-family: "Roboto", sans-serif;
 
     &__item {
-      flex: 1 1 calc(50% - 10px); // два блоки в ряд з урахуванням gap
+      flex: 1 1 calc(50% - 10px);
       background-color: #1e1e1e;
       color: #fff;
       padding: 20px;
@@ -32,5 +37,9 @@
         flex: 1 1 100%;
       }
     }
+  }
+
+  &__slider {
+    width: 50%;
   }
 }

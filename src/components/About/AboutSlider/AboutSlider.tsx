@@ -1,31 +1,36 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Pagination } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 import { images } from "@constants/about";
-import styles from "./AboutSlider.module.scss";
+import "../AboutSlider/AboutSlider.scss";
 
-const AboutSlider = () => {
-  return (
-    <div className={styles.sliderWrapper}>
-      <Swiper
-        loop={true}
-        centeredSlides={true}
-        slidesPerView={3}
-        spaceBetween={30}
-        modules={[Navigation]}
-        navigation
-        className={styles.swiper}
-      >
-        {images.map((image, index) => (
-          <SwiperSlide key={index}>
-            <img src={image.src} alt={image.alt} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
-  );
-};
+const AboutSlider = () => (
+  <div className="sliderWrapper">
+    <Swiper
+      modules={[Navigation, Pagination, Autoplay]}
+      cssMode={true}
+      autoplay={{
+        delay: 3000,
+        disableOnInteraction: false,
+      }}
+      navigation={true}
+      pagination={{ clickable: true }}
+      slidesPerView={1}
+      centeredSlides={true}
+      loop={true}
+      className="swiper"
+    >
+      {images.map((img, index) => (
+        <SwiperSlide key={index}>
+          <img src={img.src} alt={img.alt} />
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  </div>
+);
 
 export default AboutSlider;

@@ -7,10 +7,9 @@ interface ButtonProps {
   textType: ButtonTextType;
 }
 
-const Button: FC<ButtonProps> = ({ textType }) => {
-  return <button className={styles.mainButton}>{ButtonTexts[textType]}</button>;
-};
-
+const Button = ({ textType }: ButtonProps) => (
+  <button className={styles.mainButton}>{ButtonTexts[textType]}</button>
+);
 export default Button;
 
 //  return <button className={styles["main-button"]}>{ButtonTexts[textType]}</button>;

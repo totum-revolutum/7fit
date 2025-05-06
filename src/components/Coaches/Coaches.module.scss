@@ -1,9 +1,12 @@
-.aboutSection {
-  margin-block: 50px;
+@use "@styles/utils/variables" as *;
+@use "@styles/utils/functions" as *;
+
+.coachesSection {
+  margin-block: toRem(95);
 }
 
 .headline {
-  margin-bottom: 50px;
+  margin-bottom: toRem(65);
 }
 
 .coach {

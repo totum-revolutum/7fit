@@ -1,0 +1,25 @@
+@use "@styles/utils/variables" as *;
+@use "@styles/utils/functions" as *;
+
+.item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: toRem(20);
+  font-family: "Roboto", sans-serif;
+
+  &__item {
+    flex: 1 1 calc(50% - 10px);
+    background-color: #1e1e1e;
+    color: #fff;
+    padding: toRem(20);
+    border-radius: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
+    &__item {
+      flex: 1 1 100%;
+    }
+  }
+}

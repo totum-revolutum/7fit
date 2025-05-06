@@ -5,8 +5,18 @@ export const aboutText: string[] = [
   "Всі тренування проходять під наглядом персонального тренера за індивідуально підібраною програмою до ваших фтнес-цілей",
 ];
 
+export const aboutTitleText: string[] = [
+  "Нове направлення в фітнесі",
+  "Гарне тіло та відмінне самопочуття",
+  "Економія часу",
+  "Особистий тренер",
+];
+
 export const images = [
-  { src: '/images/about/1.png', alt: 'EMS тренування 1' },
-  { src: '/images/about/2.png', alt: 'EMS тренування 2' },
-  { src: '/images/about/3.png', alt: 'EMS тренування 3' },
+  { src: "/images/about/1.png", alt: "EMS тренування 1" },
+  { src: "/images/about/2.png", alt: "EMS тренування 2" },
+  { src: "/images/about/3.png", alt: "EMS тренування 3" },
+  { src: "/images/about/1.png", alt: "EMS тренування 1" },
+  { src: "/images/about/2.png", alt: "EMS тренування 2" },
+  { src: "/images/about/3.png", alt: "EMS тренування 3" },
 ];

@@ -1,31 +1,29 @@
-  import { aboutText } from "@constants/about";
+import { aboutText } from "@constants/about";
 import styles from "./About.module.scss";
 import AboutSlider from "./AboutSlider/AboutSlider";
 
-function About() {
-  return (
-    <>
-      <section className={styles.aboutSection}>
-        <div className={styles.headline}>
-          <div className={`${styles.headline__title} style-h1`}>
-            Переваги EMS тренувань
+const About = () => (
+  <section className={styles.aboutSection}>
+    <div className={styles.headline}>
+      <div className={`${styles.headline__title} style-h1`}>
+        Переваги EMS тренувань
+      </div>
+      <div className={styles.headline__subtitle}></div>
+    </div>
+    <div className={styles.info}>
+      <div className={styles.info__benefits}>
+        {aboutText.map((item, index) => (
+          <div key={index} className={styles.info__benefits__item}>
+            {item}
           </div>
-          <div className={styles.headline__subtitle}></div>
-        </div>
-        <div className={styles.info}>
-          <div className={styles.info__benefits}>
-            {aboutText.map((item, index) => (
-              <div key={index} className={styles.info__benefits__item}>
-                {item}
-              </div>
-            ))}
-          </div>
-          <AboutSlider />
-        </div>
-      </section>
-    </>
-  );
-}
+        ))}
+      </div>
+      <div className={styles.info__slider}>
+        <AboutSlider />
+      </div>{" "}
+    </div>
+  </section>
+);
 
 export default About;
 

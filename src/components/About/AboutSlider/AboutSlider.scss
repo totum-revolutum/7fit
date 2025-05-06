@@ -1,0 +1,41 @@
+@use "@styles/utils/variables" as *;
+@use "@styles/utils/functions" as *;
+
+.swiper {
+  width: 100%;
+  border-radius: toRem(16);
+
+  img {
+    width: 100%;
+    height: toRem(600);
+    object-fit: cover;
+    border-radius: toRem(16);
+    margin: auto;
+  }
+}
+
+.swiper-slide {
+  overflow: hidden;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: $neon-violet-color;
+  top: 50%;
+  transform: translateY(-50%);
+}
+  
+.swiper-pagination-bullet {
+  background-color: #ffffff;
+  border: 1px solid $neon-violet-color;
+  opacity: 1;
+  width: toRem(10);
+  height: toRem(10);
+  margin: 0 toRem(6);
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: $neon-violet-color;
+}

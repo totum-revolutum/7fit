@@ -2,14 +2,13 @@
 @use "./functions" as *;
 
 .style-main_title {
-  font-size: toRem(50);
+  font-size: toRem(54);
   line-height: toRem(41);
   font-weight: $extraBold;
 
   @media (min-width: $tablet) {
-    font-size: toRem(56);
+    font-size: toRem(60);
     line-height: toRem(48);
-    font-weight: $extraBold;
   }
 }
 
@@ -18,80 +17,80 @@
   font-size: toRem(18);
   line-height: toRem(18);
 
-  @media (max-width: 640px) {
-    font-size: toRem(16);
-    line-height: toRem(20);
-  }
-}
-
-.style-h1 {
-  font-weight: $extraBold;
-  font-size: toRem(48);
-  line-height: toRem(56);
-  letter-spacing: -0.01em;
-
-  @media (max-width: 640px) {
-    font-size: toRem(32);
-    line-height: toRem(41);
-  }
-}
-
-.style-h2 {
-  font-weight: $extraBold;
-  font-size: toRem(32);
-  line-height: toRem(41);
-  letter-spacing: -0.01em;
-
-  @media (max-width: 640px) {
-    font-size: toRem(22);
-    line-height: toRem(31);
-  }
-}
-
-.style-h3 {
-  font-weight: $extraBold;
-  font-size: toRem(22);
-  line-height: toRem(31);
-
-  @media (max-width: 640px) {
-    font-weight: $semiBold;
+  @media (min-width: $tablet) {
     font-size: toRem(20);
-    line-height: toRem(26);
-  }
-}
-
-.style-h4 {
-  font-weight: $semiBold;
-  font-size: toRem(20);
-  line-height: toRem(26);
-
-  @media (max-width: 640px) {
-    font-size: toRem(16);
     line-height: toRem(20);
   }
 }
 
-.style-uppercase-text {
-  font-weight: $semiBold;
-  font-size: toRem(12);
-  line-height: toRem(11);
-  letter-spacing: 0.04em;
-}
+// .style-h1 {
+//   font-weight: $extraBold;
+//   font-size: toRem(48);
+//   line-height: toRem(56);
+//   letter-spacing: -0.01em;
 
-.style-buttons-text {
-  font-weight: $semiBold;
-  font-size: toRem(14);
-  line-height: toRem(21);
-}
+//   @media (max-width: 640px) {
+//     font-size: toRem(32);
+//     line-height: toRem(41);
+//   }
+// }
 
-.style-body-text {
-  font-weight: $regular;
-  font-size: toRem(14);
-  line-height: toRem(21);
-}
+// .style-h2 {
+//   font-weight: $extraBold;
+//   font-size: toRem(32);
+//   line-height: toRem(41);
+//   letter-spacing: -0.01em;
 
-.style-small-text {
-  font-weight: $semiBold;
-  font-size: toRem(12);
-  line-height: toRem(15);
-}
+//   @media (max-width: 640px) {
+//     font-size: toRem(22);
+//     line-height: toRem(31);
+//   }
+// }
+
+// .style-h3 {
+//   font-weight: $extraBold;
+//   font-size: toRem(22);
+//   line-height: toRem(31);
+
+//   @media (max-width: 640px) {
+//     font-weight: $semiBold;
+//     font-size: toRem(20);
+//     line-height: toRem(26);
+//   }
+// }
+
+// .style-h4 {
+//   font-weight: $semiBold;
+//   font-size: toRem(20);
+//   line-height: toRem(26);
+
+//   @media (max-width: 640px) {
+//     font-size: toRem(16);
+//     line-height: toRem(20);
+//   }
+// }
+
+// .style-uppercase-text {
+//   font-weight: $semiBold;
+//   font-size: toRem(12);
+//   line-height: toRem(11);
+//   letter-spacing: 0.04em;
+// }
+
+// .style-buttons-text {
+//   font-weight: $semiBold;
+//   font-size: toRem(14);
+//   line-height: toRem(21);
+// }
+
+// .style-body-text {
+//   font-weight: $regular;
+//   font-size: toRem(14);
+//   line-height: toRem(21);
+// }
+
+// .style-small-text {
+//   font-weight: $semiBold;
+//   font-size: toRem(12);
+//   line-height: toRem(15);
+// }
