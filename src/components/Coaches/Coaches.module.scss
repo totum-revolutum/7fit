@@ -9,6 +9,33 @@
   margin-bottom: toRem(65);
 }
 
-.coach {
+.coaches {
   display: flex;
+  flex-wrap: wrap; // дозволяє переносити елементи на новий ряд
+  gap: toRem(20); // відстань між тренерами
+  justify-content: center; // вирівнювання по центру, змінюй на need
+}
+
+.coach {
+  flex: 1 1 100%; // по замовчуванню — 1 в ряд
+  max-width: 100%;
+  padding-inline: toRem(10);
+  box-sizing: border-box;
+
+  & img {
+    border-radius: toRem(16);
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  @media (min-width: $tablet) {
+    flex: 1 1 calc(50% - toRem(20)); // 2 в ряд з відступом
+    max-width: calc(50% - toRem(20));
+  }
+
+  @media (min-width: $desktop) {
+    flex: 1 1 calc(25% - toRem(20)); // 4 в ряд
+    max-width: calc(25% - toRem(20));
+  }
 }

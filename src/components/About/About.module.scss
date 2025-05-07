@@ -13,33 +13,28 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: column;
   gap: toRem(50);
 
   &__benefits {
-    width: 50%;
+    width: 55%;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    font-family: "Roboto", sans-serif;
-
-    &__item {
-      flex: 1 1 calc(50% - 10px);
-      background-color: #1e1e1e;
-      color: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      font-size: 16px;
-      line-height: 1.5;
-    }
-
-    @media (max-width: 768px) {
-      &__item {
-        flex: 1 1 100%;
-      }
-    }
+    gap: toRem(25);
   }
 
   &__slider {
-    width: 50%;
+    width: 45%;
   }
+
+  @media (min-width: $tablet) {
+  }
+
+  @media (min-width: $desktop) {
+    flex-direction: row;
+  }
+}
+
+.highlight {
+  color: $neon-violet-color;
 }

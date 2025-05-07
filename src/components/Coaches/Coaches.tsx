@@ -7,11 +7,11 @@ const Coaches = () => (
       <div className={`${styles.headline__title} style-h1`}>Наші тренери</div>
       <div className={styles.headline__subtitle}></div>
     </div>
-    {/* <div className={styles.coach}>
-          {coaches.map((coach, index) => (
-            <img src={coach.src} key={index} alt={coach.alt} />
-          ))}
-        </div> */}
+    <div className={styles.coaches}>
+      {coaches.map((coach, index) => (
+        <img src={coach.src} key={index} alt={coach.alt} className={styles.coach} />
+      ))}
+    </div>
   </section>
 );
 

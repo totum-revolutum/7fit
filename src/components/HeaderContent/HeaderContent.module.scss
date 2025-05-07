@@ -2,7 +2,7 @@
 @use "@styles/utils/functions" as *;
 
 .landingText {
-  width: 45%;
+  width: 50%;
   margin-top: 13%;
 
   display: flex;
@@ -11,7 +11,7 @@
   align-items: flex-start;
 
   &__subtitle {
-    color: #ccc;
+    color: $description-text-color;
     width: 80%;
 
     &__line {
@@ -32,5 +32,5 @@
 }
 
 .highlight {
-  color: #bc13fe;
+  color: $neon-violet-color;
 }

@@ -1,31 +1,23 @@
-import { FC } from "react";
 import styles from "./BenefitItem.module.scss";
-import {
-  Zap,
-  Flame,
-  Timer,
-  UserCheck
-} from "lucide-react";
 
 interface BenefitItemProps {
-  icon: JSX.Element;
+  icon: string;
   title: string;
   description: string;
 }
 
-const BenefitItem: FC<BenefitItemProps> = ({ icon, title, description }) => {
-  return (
-    <div className={styles.item}>
-      <div className={styles.icon}>{icon}</div>
-      <h4 className={styles.title}>{title}</h4>
-      {aboutText.map((item, index) => (
-              <div key={index} className={styles.description}>
-                {item}
-              </div>
-            ))}
-      
+const BenefitItem = ({ icon, title, description }: BenefitItemProps) => (
+  <div className={styles.item}>
+    <img src={icon} className={styles.icon} />
+    <div className={styles.benefit}>
+      <div className={`${styles.benefit__title} style-uppercase-text`}>
+        {title}
+      </div>
+      <div className={`${styles.benefit__description} style-body-text`}>
+        {description}
+      </div>
     </div>
-  );
-};
+  </div>
+);
 
 export default BenefitItem;

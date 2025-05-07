@@ -15,25 +15,39 @@
 .style_main_subtitle {
   font-weight: $semiBold;
   font-size: toRem(18);
-  line-height: toRem(18);
+  line-height: toRem(19);
 
   @media (min-width: $tablet) {
     font-size: toRem(20);
-    line-height: toRem(20);
+    line-height: toRem(21);
   }
 }
 
-// .style-h1 {
-//   font-weight: $extraBold;
-//   font-size: toRem(48);
-//   line-height: toRem(56);
-//   letter-spacing: -0.01em;
+.style-h1 {
+  font-weight: $extraBold;
+  font-size: toRem(48);
+  line-height: toRem(56);
+  letter-spacing: -0.01em;
 
-//   @media (max-width: 640px) {
-//     font-size: toRem(32);
-//     line-height: toRem(41);
-//   }
-// }
+  @media (max-width: 640px) {
+    font-size: toRem(32);
+    line-height: toRem(41);
+  }
+}
+
+.style-uppercase-text {
+  font-weight: $semiBold;
+  font-size: toRem(20);
+  line-height: toRem(19);
+  text-transform: uppercase;
+}
+
+.style-body-text {
+  font-weight: $regular;
+  font-size: toRem(18);
+  line-height: toRem(21);
+  font-family: "Roboto", sans-serif;
+}
 
 // .style-h2 {
 //   font-weight: $extraBold;
@@ -85,8 +99,10 @@
 
 // .style-body-text {
 //   font-weight: $regular;
-//   font-size: toRem(14);
+//   font-size: toRem(16);
 //   line-height: toRem(21);
+//         font-family: "Roboto", sans-serif;
+
 // }
 
 // .style-small-text {
