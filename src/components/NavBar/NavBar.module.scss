@@ -1,33 +1,126 @@
 @use "../../styles/utils/functions" as *;
 @use "../../styles/utils/variables" as *;
 
+// .nav {
+//   display: flex;
+//   gap: toRem(20);
+
+//   @media (max-width: 950px) {
+//     display: none;
+//     position: absolute;
+//     top: 100%;
+//     right: 0;
+//     flex-direction: column;
+//     background-color: grey;
+//     padding: toRem(20);
+//     z-index: 10;
+//     width: 100%;
+//   }
+
+//   &.nav_open {
+//     display: flex;
+//   }
+
+//   &_item {
+//     padding: toRem(10) 0;
+//     text-decoration: none;
+//     color: red;
+//   }
+// }
+
+// .burger_icon {
+//   display: none;
+//   cursor: pointer;
+
+//   @media (max-width: 950px) {
+//     display: block;
+//   }
+// }
+
+// .hero {
+//   position: fixed;
+
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+
+//   margin-block: toRem(40);
+
+//   &__logo {
+//     height: toRem(30);
+//   }
+
+//   &__nav {
+//     display: flex;
+//     gap: toRem(15);
+//     font-size: 14px;
+
+//     a {
+//       color: white;
+//       font-weight: $semiBold;
+//       border-radius: toRem(6);
+
+//       transition: all $transitionDuration;
+
+//
+//     }
+//   }
+
+//   &__auth {
+//     display: flex;
+//   }
+// }
+
+// .burger_icon {
+//   display: none;
+//   cursor: pointer;
+// }&:hover {
+//         background-color: rgba(217, 0, 173, 0.3);
+//         color: #fff;
+//         box-shadow: 1px 1px 54px 9px rgba(217, 0, 173, 0.3);
+//       }
+
 .hero {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   margin-block: toRem(40);
 
   &__logo {
     height: toRem(30);
   }
 
-  &__nav {
-    display: flex;
-    gap: toRem(15);
+  .burger__icon {
+    display: none;
+    cursor: pointer;
 
-    a {
-      color: white;
-      font-weight: $semiBold;
-      border-radius: toRem(6);
-
-      transition: all $transitionDuration;
-
-      &:hover {
-        background-color: rgba(217, 0, 173, 0.3);
-        color: #fff;
-        box-shadow: 1px 1px 54px 9px rgba(217, 0, 173, 0.3);
-      }
+    @media (max-width: 950px) {
+      display: block;
     }
+  }
+
+  &__auth {
+    display: flex;
+    gap: toRem(20);
+  }
+
+  padding-left: toRem(40);
+  padding-right: toRem(40);
+  margin: 0 auto;
+  max-width: 1440px;
+
+  @media (min-width: $tablet) {
+    padding-left: toRem(70);
+    padding-right: toRem(70);
+  }
+
+  @media (min-width: $desktop) {
+    padding-left: toRem(96);
+    padding-right: toRem(96);
   }
 }

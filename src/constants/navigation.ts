@@ -16,10 +16,10 @@ export enum RoutePath {
 
 // масив для рендера
 export const NAV_ITEMS: NavItem[] = [
-  { label: "Головна", path: RoutePath.HOME },
-  { label: "Чому ми?", path: RoutePath.WHY_US },
-  { label: "Тренери", path: RoutePath.COACHES },
-  { label: "Розклад", path: RoutePath.SCHEDULE },
-  { label: "Ціни", path: RoutePath.PRICING },
-  { label: "Контакти", path: RoutePath.CONTACT },
+  { label: "Головна", path: "#home" },
+  { label: "Чому ми?", path: "#about" },
+  { label: "Тренери", path: "#coaches" },
+  { label: "Розклад", path: "#1" },
+  { label: "Ціни", path: "#2" },
+  { label: "Контакти", path: "#3" },
 ];

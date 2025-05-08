@@ -1,44 +1,47 @@
-import { Button } from "@components/shared/Button";
+import { useState } from "react";
 import styles from "./NavBar.module.scss";
-import { NAV_ITEMS } from "@constants/navigation";
+import { Button } from "@components/shared/Button";
+import { OPEN_MENU_CLASS } from "@constants/other";
+import { NavLink } from "./NavLink";
 
 const NavBar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+
+    if (!isMenuOpen) {
+      document.body.classList.add(OPEN_MENU_CLASS);
+    } else {
+      document.body.classList.remove(OPEN_MENU_CLASS);
+    }
+  };
+
   return (
     <section className={styles.hero}>
       <img
         src="/images/logo/logo125.svg"
         alt="SevenFit"
-        className={styles["hero__logo"]}
+        className={styles.hero__logo}
       />
-      <nav>
-        <ul className={styles["hero__nav"]}>
-          {NAV_ITEMS.map((item) => (
-            <li key={item.path}>
-              <a href={item.path}>{item.label}</a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-      <Button textType="LOG_IN" />
+
+      <NavLink isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+
+      <div className={styles.hero__auth}>
+        {/* <button onClick={handleUserIconCLick} className={styles.theme_toggle}> */}
+        <img className={styles.user__icon} src="/icon/user.svg" alt="User" />
+        {/* </button> */}
+        <Button textType="LOG_IN" />
+
+        <div className={styles.burger__icon} onClick={toggleMenu}>
+          <img
+            src={isMenuOpen ? "/icon/x.svg" : "/icon/menu.svg"}
+            alt="Burger icon"
+          />
+        </div>
+      </div>
     </section>
   );
 };
 
 export default NavBar;
-
-{
-  /* <div className="hero__overlay" />
-      <div className="hero__content">
-        <h1 className="hero__title">
-          Твій <span className="highlight">EMS-фітнес</span> — новий рівень
-          тренувань
-        </h1>
-        <p className="hero__subtitle">
-          Безпечні й ефективні тренування з електроміостимуляцією. Максимальний
-          результат за мінімум часу.
-        </p>
-        <a href="#pricing" className="hero__cta">
-          Записатися на перше заняття
-        </a>
-      </div> */
-}
