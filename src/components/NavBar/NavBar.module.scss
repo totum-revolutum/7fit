@@ -1,6 +1,34 @@
 @use "../../styles/utils/functions" as *;
 @use "../../styles/utils/variables" as *;
 
+.hero {
+  position: fixed;
+  top: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-block: toRem(40);
+
+  &__logo {
+    height: toRem(30);
+  }
+
+  .burger__icon {
+    display: none;
+    cursor: pointer;
+
+    @media (max-width: 950px) {
+      display: block;
+    }
+  }
+
+  &__auth {
+    display: flex;
+    gap: toRem(20);
+  }
+}
+
 // .nav {
 //   display: flex;
 //   gap: toRem(20);
@@ -79,48 +107,3 @@
 //         color: #fff;
 //         box-shadow: 1px 1px 54px 9px rgba(217, 0, 173, 0.3);
 //       }
-
-.hero {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-block: toRem(40);
-
-  &__logo {
-    height: toRem(30);
-  }
-
-  .burger__icon {
-    display: none;
-    cursor: pointer;
-
-    @media (max-width: 950px) {
-      display: block;
-    }
-  }
-
-  &__auth {
-    display: flex;
-    gap: toRem(20);
-  }
-
-  padding-left: toRem(40);
-  padding-right: toRem(40);
-  margin: 0 auto;
-  max-width: 1440px;
-
-  @media (min-width: $tablet) {
-    padding-left: toRem(70);
-    padding-right: toRem(70);
-  }
-
-  @media (min-width: $desktop) {
-    padding-left: toRem(96);
-    padding-right: toRem(96);
-  }
-}
