@@ -7,7 +7,7 @@
 
   img {
     width: 100%;
-    height: toRem(600);
+    aspect-ratio: 1 / 1.2;
     object-fit: cover;
     border-radius: toRem(16);
     margin: auto;
@@ -24,7 +24,7 @@
   top: 50%;
   transform: translateY(-50%);
 }
-  
+
 .swiper-pagination-bullet {
   background-color: #ffffff;
   border: 1px solid $neon-violet-color;

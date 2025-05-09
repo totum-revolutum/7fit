@@ -6,14 +6,12 @@
   align-items: flex-start;
   gap: toRem(15);
 
+  // display: grid;
+
   background-color: $secondary-bg-color;
   color: $description-text-color;
   padding: toRem(15);
   border-radius: toRem(10);
-
-  // @media (max-width: 768px) {
-  //   flex: 1 1 100%;
-  // }
 
   .icon {
     width: toRem(24);
@@ -23,11 +21,12 @@
     &__title {
       margin-bottom: toRem(20);
     }
+  }
 
-    // @media (min-width: $tablet) {
-    // }
+  @media (min-width: $tablet) {
 
-    // @media (min-width: $desktop) {
-    // }
+  }
+
+  @media (min-width: $desktop) {
   }
 }

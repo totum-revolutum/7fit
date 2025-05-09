@@ -17,14 +17,39 @@
   gap: toRem(50);
 
   &__benefits {
-    width: 55%;
-    display: flex;
-    flex-wrap: wrap;
+    width: 100%;
+    display: grid;
+    // flex-wrap: wrap;
     gap: toRem(25);
+
+    @media (min-width: $tablet) {
+      width: 100%;
+      grid-auto-flow: row;
+      grid-template-columns: repeat(2, auto);
+      column-gap: 5%;
+
+      justify-content: center;
+    }
+
+    @media (min-width: $desktop) {
+      width: 55%;
+      grid-auto-flow: column; // переключаємось на рядки
+      grid-template-rows: repeat(4, 1fr); // 4 в ряд
+      column-gap: toRem(20);
+    }
   }
 
   &__slider {
-    width: 45%;
+    width: 85%;
+
+    @media (min-width: $tablet) {
+      width: 60%;
+      max-width: 500px;
+    }
+
+    @media (min-width: $desktop) {
+      width: 45%;
+    }
   }
 
   @media (min-width: $tablet) {
