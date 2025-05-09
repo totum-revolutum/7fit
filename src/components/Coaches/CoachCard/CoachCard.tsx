@@ -20,10 +20,10 @@ const CoachCard = ({ coach, onClose }: CoachModalProps) => {
     <div className={styles.backdrop} onClick={handleBackdropClick}>
       <div className={styles.modal} onClick={handleModalClick}>
         <img src={coach.src} alt={coach.alt} className={styles.modal__img} />
-        <h2 className={`${styles.coach__name} style-uppercase-text`}>
+        <h2 className={`${styles.modal__name} style-uppercase-text`}>
           {coach.name}
         </h2>
-        <p className={`${styles.coach__name} .style-body-text`}>{coach.info}</p>
+        <p className={`${styles.modal__info} .style-body-text`}>{coach.info}</p>
         <button onClick={onClose}>Закрити</button>
       </div>
     </div>

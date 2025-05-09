@@ -10,58 +10,63 @@
 }
 
 .coaches {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   row-gap: toRem(40);
   justify-content: center;
 
+  // На планшетах — по 2 елементи в колонці
   @media (min-width: $tablet) {
-    justify-content: space-between;
-    flex-wrap: wrap;
-    flex-direction: row;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(2, auto);
+    column-gap: 5%;
+
+    justify-content: center;
   }
 
+  // На десктопі — 4 в ряд (тобто grid по рядках)
   @media (min-width: $desktop) {
-    flex-wrap: nowrap;
+    grid-auto-flow: row; // переключаємось на рядки
+    grid-template-columns: repeat(4, 1fr); // 4 в ряд
+    grid-template-rows: none;
+    column-gap: toRem(20);
   }
 }
 
 .coach {
-  width: 280px;
-
-  padding: 20px;
+  width: 100%;
+  max-width: toRem(350);
+  padding: toRem(15);
   border-radius: toRem(16);
   background-color: $secondary-bg-color;
-
-  &:not(:last-child) {
-    margin-right: toRem(20);
-  }
+  // background-color: green;
 
   display: flex;
   flex-direction: column;
   align-items: center;
 
   &__img {
-    width: 95%;
-    height: 550px;
+    width: 100%;
+    aspect-ratio: 1 / 1.2;
+    height: auto;
     border-radius: toRem(16);
     object-fit: cover;
-    display: block;
 
-    margin-bottom: 30px;
-
-    @media (min-width: $tablet) {
-      width: toRem(300);
-      // flex: 1 1 calc(50% - toRem(20));
-      height: 350px;
-    }
-
-    @media (min-width: $desktop) {
-      width: toRem(300);
-      // flex: 1 1 calc(25% - toRem(20));
-    }
+    margin-bottom: toRem(30);
   }
 
   &__name {
   }
+
+  // @media (min-width: $tablet) {
+  //   &:not(:last-child) {
+  //     margin-right: toRem(20);
+  //   }
+  // flex: 1 1 calc(50% - toRem(20));
+  // height: toRem(280);
+  // box-sizing: content-box;
+  // }
+
+  // @media (min-width: $desktop) {
+  // flex: 1 1 calc(25% - toRem(20));
+  // }
 }

@@ -16,18 +16,23 @@
 
 .modal {
   background: $secondary-bg-color;
-  padding: 2rem;
-  border-radius: 12px;
-  max-width: 500px;
+  padding: toRem(32);
+  margin: toRem(30);
+  border-radius: toRem(12);
+  max-width: toRem(500);
 
   text-align: center;
   animation: fadeIn 0.3s ease;
-}
 
-.modal__img {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 1rem;
+  &__img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: toRem(20);
+  }
+
+  &__name {
+    margin-bottom: toRem(15);
+  }
 }
 
 @keyframes fadeIn {
