@@ -4,7 +4,7 @@ import { landingSubtitle } from "@constants/subtitleText";
 
 const HeaderContent = () => (
   <div className={styles.landingText}>
-    <div className="style-main_title">
+    <div className={`${styles.landingText__title} style-main_title`}>
       <span className={styles.highlight}>EMS:</span>
       <br />
       Виведи свої тренування на рівень

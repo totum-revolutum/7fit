@@ -2,8 +2,8 @@
 @use "./functions" as *;
 
 .style-main_title {
-  font-size: toRem(54);
-  line-height: toRem(41);
+  font-size: toRem(50);
+  line-height: toRem(40);
   font-weight: $extraBold;
 
   @media (min-width: $tablet) {

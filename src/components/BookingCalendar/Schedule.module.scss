@@ -1,0 +1,207 @@
+// .schedule {
+//   display: grid;
+//   grid-template-columns: 60px repeat(7, 1fr); // 1 колонка для часу + 7 днів
+//   grid-auto-rows: 40px;
+//   font-size: 14px;
+//   color: #fff;
+//   background: radial-gradient(circle at center, #171717 0%, #0c0c0c 100%);
+//   border: 1px solid #2a2a2a;
+// }
+
+// .header {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   font-weight: 600;
+//   background: #171717;
+//   border: 1px solid #2e2e2e;
+//   text-transform: lowercase;
+// }
+
+// .time {
+//   background-color: #111;
+//   display: flex;
+//   align-items: center;
+//   justify-content: flex-end;
+//   padding-right: 8px;
+//   font-weight: 500;
+//   color: #999;
+//   border: 1px solid #2e2e2e;
+// }
+
+// .cell {
+//   border: 1px solid #2e2e2e;
+//   background-color: transparent;
+//   cursor: pointer;
+// }
+
+// .free {
+//   background-color: #a855f7;
+//   border-radius: 4px;
+//   margin: 2px;
+// }
+
+// .booked {
+//   background-color: #333;
+//   pointer-events: none;
+// }
+
+//222222
+
+// .schedule {
+//   display: grid;
+//   grid-template-columns: auto 1fr;
+//   border: 1px solid #333;
+//   border-radius: 12px;
+//   overflow: hidden;
+//   background-color: #1a1a1a;
+//   color: white;
+//   font-family: "Inter", sans-serif;
+// }
+
+// .timeColumn {
+//   display: grid;
+//   grid-template-rows: repeat(14, 60px); // 14 годин з 8:00 до 21:00
+//   background-color: #121212;
+//   border-right: 1px solid #333;
+
+//   .timeCell {
+//     writing-mode: vertical-rl;
+//     transform: rotate(180deg); // повертаємо текст, щоб читався зверху вниз
+//     text-align: center;
+//     color: #aaa;
+//     font-size: 12px;
+//     padding: 0 4px;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     border-bottom: 1px solid #333;
+//   }
+// }
+
+// .days {
+//   display: grid;
+//   grid-template-rows: auto 1fr;
+//   width: 100%;
+// }
+
+// .headerRow {
+//   display: grid;
+//   grid-template-columns: repeat(7, 1fr);
+//   background-color: #171717;
+//   text-align: center;
+//   font-weight: 600;
+//   padding: 10px 0;
+//   border-bottom: 1px solid #333;
+
+//   .headerCell {
+//     color: #ddd;
+//   }
+// }
+
+// .grid {
+//   display: grid;
+//   grid-template-columns: repeat(7, 1fr);
+// }
+
+// .cell {
+//   height: 30px;
+//   border-bottom: 1px solid #333;
+//   border-right: 1px solid #333;
+//   cursor: pointer;
+//   transition: background-color 0.2s;
+
+//   &.free {
+//     background-color: #4c1d95; // фіолетовий
+//   }
+
+//   &.booked {
+//     background-color: #2a2a2a;
+//     cursor: not-allowed;
+//   }
+
+//   &:hover:not(.booked) {
+//     background-color: #6d28d9;
+//   }
+// }
+
+//3333
+
+.scheduleContainer {
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+}
+
+.headerRow {
+  display: grid;
+  grid-template-columns: 60px repeat(7, 1fr); // 60px для вертикальної колонки з годинами
+}
+
+.cornerCell {
+  width: 60px;
+  height: 40px;
+}
+
+.headerCell {
+  text-align: center;
+  padding: 10px 0;
+  color: #fff;
+  font-weight: bold;
+}
+
+.grid {
+  display: grid;
+  grid-template-rows: repeat(14, 60px); // 14 годин
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 60px repeat(7, 1fr);
+}
+
+.timeCell {
+  writing-mode: vertical-rl;
+  transform: rotate(270deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  background-color: #121212;
+  border-right: 1px solid #333;
+  font-size: 12px;
+}
+
+.cell {
+  border: 1px solid #222;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.free {
+  background-color: #6a0dad; // фіолетовий
+}
+
+.busy {
+  background-color: #000;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  background-color: #1a1a1a;
+  padding: 20px;
+  border-radius: 8px;
+  color: white;
+  min-width: 300px;
+}

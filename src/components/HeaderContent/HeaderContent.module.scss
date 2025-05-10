@@ -2,23 +2,29 @@
 @use "@styles/utils/functions" as *;
 
 .landingText {
-  width: 50%;
-  margin-top: 13%;
+  width: 80%;
+  margin-top: 30%;
 
   display: flex;
   gap: toRem(40);
   flex-direction: column;
   align-items: flex-start;
 
+  &__title {
+    margin-bottom: 30px;
+  }
+
   &__subtitle {
     color: $description-text-color;
     width: 80%;
+
+    margin-bottom: 30px;
 
     &__line {
       display: flex;
       align-items: flex-start;
       gap: toRem(8);
-      margin-bottom: toRem(12);
+      margin-bottom: toRem(25);
 
       svg {
         flex-shrink: 0;
@@ -28,6 +34,24 @@
         margin-block: toRem(1);
       }
     }
+
+    @media (min-width: $tablet) {
+      margin-bottom: 30px;
+    }
+
+    @media (min-width: $desktop) {
+      margin-bottom: 40px;
+    }
+  }
+
+  @media (min-width: $tablet) {
+    width: 65%;
+    margin-top: 15%;
+  }
+
+  @media (min-width: $desktop) {
+    width: 50%;
+    margin-top: 13%;
   }
 }
 
