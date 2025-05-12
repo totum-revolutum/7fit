@@ -1,0 +1,17 @@
+@use "@styles/utils/variables" as *;
+@use "@styles/utils/functions" as *;
+
+.mapSection {
+  margin-block: toRem(95);
+}
+
+.headline {
+  margin-bottom: toRem(65);
+}
+
+.mapContainer {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0px 0px 18px 2px $neon-violet-color;
+  filter: grayscale(30%) brightness(90%) hue-rotate(50deg);
+}

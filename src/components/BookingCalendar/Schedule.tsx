@@ -31,56 +31,64 @@ export const Schedule = () => {
   };
 
   return (
-    <div className={styles.scheduleContainer}>
-      <div className={styles.headerRow}>
-        <div className={styles.cornerCell}></div>
-        {days.map((day, i) => (
-          <div key={i} className={styles.headerCell}>
-            {day}
-          </div>
-        ))}
-      </div>
-      <div className={styles.grid}>
-        {hours.map((hour, hourIndex) => (
-          <div key={hour} className={styles.row}>
-            <div className={styles.timeCell}>{hour}</div>
-            {days.map((_, dayIndex) => {
-              const isBusy = availability[dayIndex][hourIndex];
-              return (
-                <div
-                  key={dayIndex}
-                  className={`${styles.cell} ${
-                    isBusy ? styles.busy : styles.free
-                  }`}
-                  onClick={() => handleClick(dayIndex, hourIndex)}
-                />
-              );
-            })}
-          </div>
-        ))}
-      </div>
-      {selectedCell && (
-        <div
-          className={styles.modalOverlay}
-          onClick={() => setSelectedCell(null)}
-        >
-          <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
-            <h2>Запис на заняття</h2>
-            <p>
-              День: <strong>{days[selectedCell.day]}</strong>
-            </p>
-            <p>
-              Час: <strong>{hours[selectedCell.hour]}</strong>
-            </p>
-            <select>
-              <option>Тренер 1</option>
-              <option>Тренер 2</option>
-            </select>
-            <button onClick={() => setSelectedCell(null)}>Записатись</button>
-          </div>
+    <section>
+      <div className={styles.headline}>
+        <div className={`${styles.headline__title} style-h1`}>
+          Розклад тренувань
         </div>
-      )}
-    </div>
+        <div className={styles.headline__subtitle}></div>
+      </div>
+      <div className={styles.scheduleContainer}>
+        <div className={styles.headerRow}>
+          <div className={styles.cornerCell}></div>
+          {days.map((day, i) => (
+            <div key={i} className={styles.headerCell}>
+              {day}
+            </div>
+          ))}
+        </div>
+        <div className={styles.grid}>
+          {hours.map((hour, hourIndex) => (
+            <div key={hour} className={styles.row}>
+              <div className={styles.timeCell}>{hour}</div>
+              {days.map((_, dayIndex) => {
+                const isBusy = availability[dayIndex][hourIndex];
+                return (
+                  <div
+                    key={dayIndex}
+                    className={`${styles.cell} ${
+                      isBusy ? styles.busy : styles.free
+                    }`}
+                    onClick={() => handleClick(dayIndex, hourIndex)}
+                  />
+                );
+              })}
+            </div>
+          ))}
+        </div>
+        {selectedCell && (
+          <div
+            className={styles.modalOverlay}
+            onClick={() => setSelectedCell(null)}
+          >
+            <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+              <h2>Запис на заняття</h2>
+              <p>
+                День: <strong>{days[selectedCell.day]}</strong>
+              </p>
+              <p>
+                Час: <strong>{hours[selectedCell.hour]}</strong>
+              </p>
+              <select>
+                <option>Тренер 1</option>
+                <option>Тренер 2</option>
+              </select>
+              <button onClick={() => setSelectedCell(null)}>Записатись</button>
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
   );
 };
 

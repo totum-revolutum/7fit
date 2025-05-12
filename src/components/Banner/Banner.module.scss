@@ -1,0 +1,10 @@
+@use "@styles/utils/variables" as *;
+@use "@styles/utils/functions" as *;
+
+.coachesSection {
+  margin-block: toRem(95);
+}
+
+.headline {
+  margin-bottom: toRem(65);
+}
