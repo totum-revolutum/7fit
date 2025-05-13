@@ -20,14 +20,13 @@ const Coaches = () => {
           <div className={`${styles.headline__title} style-h1`}>
             Наші тренери
           </div>
-          <div className={styles.headline__subtitle}></div>
+          <img src="/neon/9.png" className={styles.headline__subtitle} />
         </div>
         <div className={styles.coaches}>
           {coaches.map((coach, index) => (
-            <div className={styles.coach}>
+            <div className={styles.coach} key={index}>
               <img
                 src={coach.src}
-                key={index}
                 alt={coach.alt}
                 className={styles.coach__img}
               />

@@ -7,6 +7,16 @@
 
 .headline {
   margin-bottom: toRem(65);
+  position: relative;
+
+  &__subtitle {
+    position: absolute;
+    width: 378px;
+    top: -22px;
+    object-fit: cover;
+    left: -221px;
+    z-index: -5;
+  }
 }
 
 .coaches {

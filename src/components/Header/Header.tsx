@@ -5,10 +5,10 @@ const Header = () => (
   <>
     {/* <div className={style.bg}></div> */}
     <div className={style.header}>
-    <div className={style.bg}></div>
-
+      <img src="/elements/106.png" alt="neon" className={style.subtimg} />
       <HeaderContent />
     </div>
+    <div className={style.bg}></div>
   </>
 );
 

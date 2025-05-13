@@ -1,14 +1,12 @@
 import styles from "./Banner.module.scss";
 
 export const Banner = () => {
-  <section>
-    <div className={styles.headline}>
-      <div className={`${styles.headline__title} style-h1`}>
-        Розклад тренувань
-      </div>
-      <div className={styles.headline__subtitle}></div>
-    </div>
-  </section>;
+  return (
+    <section className={styles.bannerSection}>
+      <img src="/neon/logo.png" alt="neon" className={styles.subimg} />
+      <img src="/images/justfoto.png" alt="Banner" className={styles.banner} />
+    </section>
+  );
 };
 
 export default Banner;

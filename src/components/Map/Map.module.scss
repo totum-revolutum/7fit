@@ -10,8 +10,8 @@
 }
 
 .mapContainer {
-  border-radius: 16px;
+  border-radius: toRem(16);
   overflow: hidden;
   box-shadow: 0px 0px 18px 2px $neon-violet-color;
-  filter: grayscale(30%) brightness(90%) hue-rotate(50deg);
+  // filter: grayscale(30%) brightness(90%) hue-rotate(50deg);
 }

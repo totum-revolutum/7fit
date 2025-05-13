@@ -1,10 +1,38 @@
 @use "@styles/utils/variables" as *;
 @use "@styles/utils/functions" as *;
 
-.coachesSection {
+.bannerSection {
   margin-block: toRem(95);
+  position: relative;
+
+  .subimg {
+    position: absolute;
+    width: toRem(300);
+    right: toRem(-28);
+    opacity: 50%;
+    bottom: -3%;
+    z-index: 5;
+
+    @media (min-width: $desktop) {
+      width: toRem(400);
+      bottom: -9%;
+    }
+  }
 }
 
-.headline {
-  margin-bottom: toRem(65);
+// .headline {
+//   margin-bottom: toRem(65);
+// }
+
+.banner {
+  width: 100%;
+  height: toRem(250);
+  object-fit: cover;
+  filter: grayscale(30%) brightness(90%) hue-rotate(351deg);
+
+  @media (min-width: $tablet) {
+  }
+  @media (min-width: $desktop) {
+    height: toRem(300);
+  }
 }
