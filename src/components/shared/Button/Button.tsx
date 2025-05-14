@@ -5,6 +5,7 @@ import { ButtonTextType } from "../../../types/button";
 
 interface ButtonProps {
   textType: ButtonTextType;
+  onClick?: () => void;
 }
 
 const Button = ({ textType }: ButtonProps) => (

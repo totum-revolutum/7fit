@@ -9,15 +9,13 @@ import { Map } from "../components/Map";
 function Home() {
   return (
     <>
-      <div>
-        <Header />
-        <About />
-        <Coaches />
-        <Schedule />
-        <Banner />
-        <Price />
-        <Map />
-      </div>
+      <Header />
+      <About />
+      <Coaches />
+      <Schedule />
+      <Banner />
+      <Price />
+      <Map />
     </>
   );
 }

@@ -6,8 +6,9 @@ import { NavLink } from "./NavLink";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isAuthenticated = false;
 
-  const toggleMenu = () => {
+  const toggleBurgerMenu = () => {
     setIsMenuOpen(!isMenuOpen);
 
     if (!isMenuOpen) {
@@ -15,6 +16,14 @@ const NavBar = () => {
     } else {
       document.body.classList.remove(OPEN_MENU_CLASS);
     }
+  };
+
+  const handleUserIconCLick = () => {
+    console.log("тут відкривається особистий кабінет");
+  };
+
+  const handleLoginClick = () => {
+    console.log("а Тут буде авторизація");
   };
 
   return (
@@ -28,18 +37,26 @@ const NavBar = () => {
       <NavLink isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 
       <div className={styles.hero__auth}>
-        {/* <button onClick={handleUserIconCLick} className={styles.theme_toggle}> */}
-        <img className={styles.user__icon} src="/icon/user.svg" alt="User" />
-        {/* </button> */}
-        <Button textType="LOG_IN" />
+        <button onClick={handleUserIconCLick}>
+          <img className={styles.iconButton} src="/icon/user.svg" alt="User" />
+          {isAuthenticated && <span className={styles.username}>ololo</span>}
+        </button>
 
-        <div className={styles.burger__icon} onClick={toggleMenu}>
+        {!isAuthenticated && (
+          <Button textType="LOG_IN" onClick={handleLoginClick} />
+        )}
+
+        <div
+          className={`${styles.iconButton} ${styles.burger}`}
+          onClick={toggleBurgerMenu}
+        >
           <img
             src={isMenuOpen ? "/icon/x.svg" : "/icon/menu.svg"}
             alt="Burger icon"
           />
         </div>
       </div>
+      <div className={styles.hero__bg} />
     </section>
   );
 };

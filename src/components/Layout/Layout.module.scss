@@ -6,6 +6,7 @@
   padding-right: toRem(40);
   margin: 0 auto;
   max-width: 1440px;
+  // overflow-x: hidden;
 
   @media (min-width: $tablet) {
     padding-left: toRem(70);

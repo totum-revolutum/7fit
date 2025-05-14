@@ -13,23 +13,13 @@ const NavLink = ({ isMenuOpen, setIsMenuOpen }: NavMenuProps) => {
   };
   return (
     <nav className={cn(styles.nav, { [styles.menu__open]: isMenuOpen })}>
-      {/* {NAV_ITEMS.map((item) => (
-        <a
-          key={item.path}
-          href={item.path}
-          onClick={handleLinkClick}
-          className={styles.nav__item}
-        >
-          {item.label}
-        </a>
-      ))} */}
       <ul className={styles.menu__list}>
         {NAV_ITEMS.map((item) => (
-          <li className={styles.menu__item} key={item.path}>
+          <li className={`${styles.menu__item} style-nav`} key={item.path}>
             <a
               href={item.path}
               onClick={handleLinkClick}
-              className={styles.nav__item}
+              className={styles.menu__link}
             >
               {item.label}
             </a>

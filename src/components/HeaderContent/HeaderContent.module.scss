@@ -3,22 +3,18 @@
 
 .landingText {
   width: 80%;
-  margin-top: 30%;
-
   display: flex;
-  gap: toRem(40);
   flex-direction: column;
   align-items: flex-start;
 
   &__title {
-    margin-bottom: 30px;
+    margin-bottom: toRem(65);
   }
 
   &__subtitle {
     color: $description-text-color;
     width: 80%;
-
-    margin-bottom: 30px;
+    margin-bottom: toRem(30);
 
     &__line {
       display: flex;
@@ -36,22 +32,20 @@
     }
 
     @media (min-width: $tablet) {
-      margin-bottom: 30px;
+      margin-bottom: toRem(40);
     }
 
     @media (min-width: $desktop) {
-      margin-bottom: 40px;
+      margin-bottom: toRem(50);
     }
   }
 
   @media (min-width: $tablet) {
     width: 65%;
-    margin-top: 15%;
   }
 
   @media (min-width: $desktop) {
     width: 50%;
-    margin-top: 13%;
   }
 }
 
