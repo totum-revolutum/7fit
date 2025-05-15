@@ -1,0 +1,26 @@
+@use "@styles/utils/variables" as *;
+@use "@styles/utils/functions" as *;
+
+.footerSection {
+  margin-block: toRem(95);
+}
+
+.headline {
+  margin-bottom: toRem(65);
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  &__container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  &__bottom {
+    text-align: center;
+  }
+}
