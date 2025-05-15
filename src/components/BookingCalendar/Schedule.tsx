@@ -31,7 +31,7 @@ export const Schedule = () => {
   };
 
   return (
-    <section>
+    <section id="schedule" className={styles.scheduleSection}>
       <div className={styles.headline}>
         <div className={`${styles.headline__title} style-h1`}>
           Розклад тренувань

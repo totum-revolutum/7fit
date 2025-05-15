@@ -4,7 +4,7 @@ import AboutSlider from "./AboutSlider/AboutSlider";
 import { BenefitItem } from "./BenefitItem";
 
 const About = () => (
-  <section className={styles.aboutSection}>
+  <section id="about" className={styles.aboutSection}>
     <div className={styles.headline}>
       <div className={`${styles.headline__title} style-h1`}>
         Переваги <span className={styles.highlight}>EMS:</span> тренувань
