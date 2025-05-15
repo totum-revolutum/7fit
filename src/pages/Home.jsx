@@ -5,6 +5,7 @@ import { Schedule } from "../components/BookingCalendar";
 import { Banner } from "../components/Banner";
 import { Price } from "../components/Price";
 import { Map } from "../components/Map";
+import { Footer } from "../components/Footer";
 
 function Home() {
   return (
@@ -16,6 +17,7 @@ function Home() {
       <Banner />
       <Price />
       <Map />
+      <Footer />
     </>
   );
 }

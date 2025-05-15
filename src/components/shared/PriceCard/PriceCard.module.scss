@@ -1,0 +1,61 @@
+@use "@styles/utils/variables" as *;
+@use "@styles/utils/functions" as *;
+
+.card {
+  background-color: #000;
+  border: 1px solid #a855f7; // фіолетовий неон
+  border-radius: 16px;
+  padding: 20px;
+  width: 100%;
+  max-width: 300px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.icon {
+  color: #a855f7;
+  font-size: 40px;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.prices {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.priceRow {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgba(168, 85, 247, 0.5);
+  padding: 12px 4px;
+  font-size: 14px;
+}
+
+.priceRow:first-child {
+  border-top: none;
+}
+
+.name {
+  opacity: 0.9;
+}
+
+.amount {
+  font-weight: 600;
+}
