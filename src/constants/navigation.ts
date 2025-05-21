@@ -21,5 +21,5 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Тренери", path: "#coaches" },
   { label: "Розклад", path: "#schedule" },
   { label: "Ціни", path: "#price" },
-  { label: "Контакти", path: "#contacts" },
+  { label: "Контакти", path: "#feedback" },
 ];
