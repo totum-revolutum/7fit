@@ -1,0 +1,60 @@
+@use "@styles/utils/variables" as *;
+@use "@styles/utils/functions" as *;
+
+.feedbackWrapper {
+  width: 100%;
+  padding-block: toRem(100);
+  position: relative;
+}
+
+.contactUs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__title {
+    font-size: toRem(30);
+    font-weight: $semiBold;
+    margin-bottom: toRem(30);
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: toRem(30);
+
+    .input {
+      padding: 5px 10px;
+      border: 1px solid $neon-violet-color;
+      border-radius: 8px;
+      color: white;
+      background-color: transparentize($secondary-bg-color, 0.4);
+
+      &::placeholder {
+        color: $description-text-color;
+      }
+    }
+  }
+}
+
+.error {
+  color: "red";
+  font-size: "12px";
+  margin-top: "4px";
+}
+.bg {
+  opacity: 0.4;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100vw;
+  height: 100%;
+  transform: translate(-50%);
+  background-image: url("/images/studio.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
