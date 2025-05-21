@@ -4,7 +4,7 @@ import { Coaches } from "../components/Coaches";
 import { Schedule } from "../components/BookingCalendar";
 import { Banner } from "../components/Banner";
 import { Price } from "../components/Price";
-import { Map } from "../components/Map";
+import { Feedback } from "../components/Feedback";
 import { Footer } from "../components/Footer";
 
 function Home() {
@@ -16,7 +16,7 @@ function Home() {
       <Schedule />
       <Banner />
       <Price />
-      <Map />
+      <Feedback />
       <Footer />
     </>
   );

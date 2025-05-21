@@ -8,6 +8,7 @@
   font-weight: $semiBold;
   border-radius: toRem(6);
   font-size: 14px;
+  background-color: transparentize($primary-color, 0.4);
 
   transition: all $transitionDuration;
 

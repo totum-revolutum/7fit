@@ -8,8 +8,10 @@ interface ButtonProps {
   onClick?: () => void;
 }
 
-const Button = ({ textType }: ButtonProps) => (
-  <button className={styles.mainButton}>{ButtonTexts[textType]}</button>
+const Button = ({ textType, onClick }: ButtonProps) => (
+  <button onClick={onClick} className={styles.mainButton}>
+    {ButtonTexts[textType]}
+  </button>
 );
 export default Button;
 
