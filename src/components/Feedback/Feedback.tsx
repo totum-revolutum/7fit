@@ -51,7 +51,7 @@ const Feedback = () => {
           Залишились питання? Зв’яжіться з нами
         </div>
         <div className={styles.contactUs__form}>
-          <div>
+          <div className={styles.contactUs__form__inputWrapper}>
             <input
               name="phone"
               type="tel"
@@ -60,9 +60,15 @@ const Feedback = () => {
               value={formData.phone}
               onChange={handleChange}
             />
-            {errors.phone && <div className={styles.error}>{errors.phone}</div>}
+            <div
+              className={`${styles.error} ${
+                errors.phone ? styles.visible : styles.hidden
+              }`}
+            >
+              {errors.phone}
+            </div>
           </div>
-          <div>
+          <div className={styles.contactUs__form__inputWrapper}>
             <input
               name="name"
               type="text"
@@ -71,10 +77,15 @@ const Feedback = () => {
               value={formData.name}
               onChange={handleChange}
             />
-            {errors.name && <div className={styles.error}>{errors.name}</div>}
+            <div
+              className={`${styles.error} ${
+                errors.name ? styles.visible : styles.hidden
+              }`}
+            >
+              {errors.name}
+            </div>
           </div>
         </div>
-
         <Button textType="SEND" onClick={submitContacts} />
       </div>
     </section>
