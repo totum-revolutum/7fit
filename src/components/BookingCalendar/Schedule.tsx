@@ -15,7 +15,6 @@ const days =
         "неділя",
       ];
 
-// Тимчасова болванка для стану бронювання: true — зайнято, false — вільно
 const initialAvailability = Array.from({ length: 7 }, () =>
   Array.from({ length: 14 }, () => Math.random() < 0.3)
 );

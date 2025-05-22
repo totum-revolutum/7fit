@@ -37,10 +37,10 @@ const NavBar = () => {
       <NavLink isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 
       <div className={styles.hero__auth}>
-        <button onClick={handleUserIconCLick}>
+        {/* <button onClick={handleUserIconCLick}>
           <img className={styles.iconButton} src="/icon/user.svg" alt="User" />
           {isAuthenticated && <span className={styles.username}>ololo</span>}
-        </button>
+        </button> */}
 
         {!isAuthenticated && (
           <Button textType="LOG_IN" onClick={handleLoginClick} />
