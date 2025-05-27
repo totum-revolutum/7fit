@@ -1,46 +1,34 @@
 import React from "react";
 import { Button } from "@components/shared/Button";
 import styles from "./Feedback.module.scss";
-import { useState } from "react";
+import { useFeedbackStore } from "@stores/useFeedbackStore";
+import { sendContactToSupabase, sendContactToTelegram } from "@api/feedbackApi";
 
 const Feedback = () => {
-  const [formData, setFormData] = useState({ name: "", phone: "" });
-  const [errors, setErrors] = useState<{ name?: string; phone?: string }>({});
+  const { name, phone, errors, setName, setPhone, validate, reset, setErrors } =
+    useFeedbackStore();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-
-    setErrors((prev) => ({ ...prev, [name]: undefined }));
+    const { name: fieldName, value } = e.target;
+    if (fieldName === "name") setName(value);
+    if (fieldName === "phone") setPhone(value);
+    setErrors({ ...errors, [fieldName]: undefined });
   };
 
-  const validate = () => {
-    const newErrors: { name?: string; phone?: string } = {};
-
-    if (!formData.name.trim()) {
-      newErrors.name = "Будь ласка, введіть ім'я.";
-    }
-
-    const phoneRegex = /^\+380\d{9}$/;
-    if (!formData.phone.trim()) {
-      newErrors.phone = "Будь ласка, введіть номер телефону.";
-    } else if (!phoneRegex.test(formData.phone)) {
-      newErrors.phone = "Номер телефону має бути у форматі +380*********";
-    }
-
-    setErrors(newErrors);
-
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const submitContacts = () => {
+  const submitContacts = async () => {
     if (!validate()) return;
 
-    console.log("Ім'я:", formData.name);
-    console.log("Телефон:", formData.phone);
+    try {
+      await sendContactToSupabase(name, phone);
+      console.log("Заявка додана у Supabase");
 
-    setFormData({ name: "", phone: "" });
-    setErrors({});
+      await sendContactToTelegram(name, phone);
+      console.log("Дані надіслані на Telegram");
+    } catch (error) {
+      console.error("Помилка:", error);
+    } finally {
+      reset();
+    }
   };
 
   return (
@@ -57,7 +45,7 @@ const Feedback = () => {
               type="tel"
               placeholder="+380*********"
               className={styles.input}
-              value={formData.phone}
+              value={phone}
               onChange={handleChange}
             />
             <div
@@ -74,7 +62,7 @@ const Feedback = () => {
               type="text"
               placeholder="Ім’я"
               className={styles.input}
-              value={formData.name}
+              value={name}
               onChange={handleChange}
             />
             <div
