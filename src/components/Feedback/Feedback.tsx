@@ -8,7 +8,7 @@ const Feedback = () => {
   const { name, phone, errors, setName, setPhone, validate, reset, setErrors } =
     useFeedbackStore();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e) => {
     const { name: fieldName, value } = e.target;
     if (fieldName === "name") setName(value);
     if (fieldName === "phone") setPhone(value);
