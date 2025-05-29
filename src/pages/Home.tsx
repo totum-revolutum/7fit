@@ -6,11 +6,13 @@ import { Banner } from "../components/Banner";
 import { Price } from "../components/Price";
 import { Feedback } from "../components/Feedback";
 import { Footer } from "../components/Footer";
+import { TrainersList } from "@components/Treinets";
 
 function Home() {
   return (
     <>
       <Header />
+      <TrainersList />
       <About />
       <Coaches />
       <Schedule />
