@@ -2,19 +2,19 @@
 @use "@styles/utils/functions" as *;
 
 .mainButton {
-  border: 1px solid $neon-violet-color;
+  // border: 1px solid $neon-violet-color;
   cursor: pointer;
-  padding: toRem(10) toRem(20);
+  padding: toRem(8) toRem(18);
   font-weight: $semiBold;
   border-radius: toRem(6);
   font-size: 14px;
-  background-color: transparentize($primary-color, 0.4);
+  background-color: $neon-violet-color;
 
   transition: all $transitionDuration;
 
   &:hover {
     background-color: #7e00ff;
     color: #fff;
-    box-shadow: 1px 1px 54px 9px rgba(217, 0, 173, 0.49);
+    // box-shadow: 1px 1px 54px 9px rgba(217, 0, 173, 0.49);
   }
 }
