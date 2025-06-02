@@ -2,7 +2,7 @@ import { supabase } from "../lib/supabaseClient";
 
 export async function sendContactToSupabase(name: string, phone: string) {
   const { data, error } = await supabase
-    .from("contact_requesrs")
+    .from("contact_requests")
     .insert([{ name, phone }]);
 
   if (error) throw error;
