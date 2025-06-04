@@ -12,7 +12,7 @@ const NavBar = () => {
   const openLogin = useUIStore((state) => state.openLogin);
   const showLogin = useUIStore((state) => state.showLogin);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { user } = useAuthStore();
+  const { user, role } = useAuthStore();
   console.log("user", user);
   const isAuthenticated = false;
 
@@ -36,6 +36,12 @@ const NavBar = () => {
     console.log("Після виклику openLogin");
   };
 
+  const getDashboardPath = () => {
+    if (role === "admin") return "/admin";
+    if (role === "user") return "/user";
+    return "/404";
+  };
+
   return (
     <section className={styles.hero}>
       <Link to={RoutePath.HOME}>
@@ -49,13 +55,19 @@ const NavBar = () => {
       <NavLink isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 
       <div className={styles.hero__auth}>
-        {/* <button onClick={handleUserIconCLick}>
-          <img className={styles.iconButton} src="/icon/user.svg" alt="User" />
-          {isAuthenticated && <span className={styles.username}>ololo</span>}
-        </button> */}
-
-        {/* {!isAuthenticated && <Button textType="LOG_IN" onClick={openLogin} />} */}
-        <Button textType="LOG_IN" onClick={handleLoginClick} />
+        {!user && <Button textType="LOG_IN" onClick={handleLoginClick} />}
+        {user && (
+          <Link to={getDashboardPath()}>
+            <button onClick={handleUserIconCLick}>
+              <img
+                className={styles.iconButton}
+                src="/icon/user.svg"
+                alt="User"
+              />
+              <span className={styles.username}>ololo</span>
+            </button>
+          </Link>
+        )}
 
         <div
           className={`${styles.iconButton} ${styles.burger}`}
