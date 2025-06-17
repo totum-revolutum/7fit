@@ -17,17 +17,17 @@
       align-items: center;
 
       & li {
-        font-size: 13px;
-        margin-bottom: 10px;
+        font-size: toRem(13);
+        margin-bottom: toRem(10);
       }
     }
   }
 
   &__container {
-    margin-bottom: 15px;
+    margin-bottom: toRem(15);
     display: grid;
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: toRem(24);
     justify-items: center;
     text-align: center;
 
@@ -51,12 +51,12 @@
   }
 
   &__allRight {
-    font-size: 11px;
+    font-size: toRem(11);
     text-align: center;
   }
 
   &__logo {
-    width: 120px;
+    width: toRem(120);
     display: flex;
     align-items: center;
   }
@@ -72,13 +72,14 @@
     // }
 
     &__link {
-      width: 30px;
+      width: toRem(30);
     }
   }
 
   &__desc {
-    font-size: 12px;
+    font-size: toRem(12);
     text-align: center;
+    margin-bottom: toRem(10);
   }
 }
 
