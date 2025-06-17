@@ -35,6 +35,18 @@
   }
 }
 
+.style-h2 {
+  font-weight: $extraBold;
+  font-size: toRem(36);
+  line-height: toRem(44);
+  letter-spacing: -0.01em;
+
+  @media (max-width: 640px) {
+    font-size: toRem(32);
+    line-height: toRem(41);
+  }
+}
+
 .style-uppercase-text {
   font-weight: $semiBold;
   font-size: toRem(20);

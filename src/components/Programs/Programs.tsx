@@ -3,10 +3,11 @@ import styles from "./Programs.module.scss";
 export const Programs = () => {
   return (
     <section className={styles.programs}>
-      <h2 className={styles.programs__title}>
+      <div className={`${styles.programs__title} style-h2`}>
         Реабілітація та спортивна підготовка
-      </h2>
+      </div>
       <div className={styles.programs__section}>
+        {/* велика картка зліва */}
         <div
           className={`${styles.programs__card} ${styles["programs__card--athletes"]}`}
         >
@@ -15,36 +16,49 @@ export const Programs = () => {
               Для спортсменів
             </div>
             <div className={styles["programs__card-desc"]}>
-              • зниження відсотка жиру <br />• покращення результатів у
-              змаганнях
+              • покращення фізичної форми
+              <br />
+              • зниження відсотка жиру
+              <br />
+              • розвиток спортивних навичок і вмінь
+              <br />
+              • покращення результатів у змаганнях
+              <br />• збільшення шансів на професійну кар'єру в спорті
             </div>
           </div>
         </div>
 
-        <div
-          className={`${styles.programs__card} ${styles["programs__card--injury"]}`}
-        >
-          <div className={styles["programs__card-content"]}>
-            <div className={styles["programs__card-title"]}>Після травм</div>
-            <div className={styles["programs__card-desc"]}>
-              Відновлення та профілактика
+        {/* 2 картки в колонці справа */}
+        <div className={styles.programs__column}>
+          <div
+            className={`${styles.programs__card} ${styles["programs__card--injury"]}`}
+          >
+            <div className={styles["programs__card-content"]}>
+              <div className={styles["programs__card-title"]}>Після травм</div>
+              <div className={styles["programs__card-desc"]}>
+                Відновлення та профілактика
+              </div>
             </div>
           </div>
-        </div>
 
-        <div
-          className={`${styles.programs__card} ${styles["programs__card--postpartum"]}`}
-        >
-          <div className={styles["programs__card-content"]}>
-            <div className={styles["programs__card-title"]}>Після пологів</div>
-            <div className={styles["programs__card-desc"]}>
-              Повернення до активності, відновлення організму
+          <div
+            className={`${styles.programs__card} ${styles["programs__card--postpartum"]}`}
+          >
+            <div className={styles["programs__card-content"]}>
+              <div className={styles["programs__card-title"]}>
+                Після пологів
+              </div>
+              <div className={styles["programs__card-desc"]}>
+                Повернення до активності, відновлення організму
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <h2 className={styles.programs__title}>Програми тренувань</h2>
+      <div className={`${styles.programs__title} style-h2`}>
+        Програми тренувань
+      </div>
       <div className={styles.programs__section}>
         <div
           className={`${styles.programs__card} ${styles["programs__card--fitness"]}`}
