@@ -1,5 +1,6 @@
 import { Header } from "../components/Header";
 import { About } from "../components/About";
+import { Programs } from "../components/Programs";
 import { Coaches } from "../components/Coaches";
 import { Schedule } from "../components/BookingCalendar";
 import { Banner } from "../components/Banner";
@@ -12,6 +13,7 @@ function Home() {
     <>
       <Header />
       <About />
+      <Programs />
       <Coaches />
       <Schedule />
       <Banner />
