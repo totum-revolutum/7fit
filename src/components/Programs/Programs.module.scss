@@ -1,0 +1,73 @@
+.programs {
+  padding: 2rem;
+  color: #fff;
+
+  &__title {
+    font-size: 2rem;
+    margin: 2rem 0 1rem;
+  }
+
+  &__section {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  &__card {
+    position: relative;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+
+    &-content {
+      position: absolute;
+      bottom: 0;
+      height: 40%;
+      width: 100%;
+      background-color: rgba(30, 30, 30, 0.7);
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start; // Текст буде на верхній межі затемнення
+      padding: 1rem;
+    }
+
+    &-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    &-desc {
+      font-size: 0.9rem;
+      margin-top: 0.25rem;
+    }
+
+    &--athletes {
+      background-image: url("/images/programs/athletes.jpg");
+      opacity: 0.8;
+    }
+
+    &--injury {
+      background-image: url("/images/programs/injury.jpg");
+      opacity: 0.8;
+    }
+
+    &--postpartum {
+      background-image: url("/images/programs/postpartum.jpg");
+      opacity: 0.8;
+    }
+
+    &--fitness {
+      background-image: url("/images/programs/fitness.jpg");
+      opacity: 0.8;
+    }
+
+    &--boxing {
+      background-image: url("/images/programs/boxing.jpg");
+      opacity: 0.8;
+    }
+  }
+}
