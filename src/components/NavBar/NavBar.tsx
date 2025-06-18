@@ -12,8 +12,7 @@ const NavBar = () => {
   const openLogin = useUIStore((state) => state.openLogin);
   const showLogin = useUIStore((state) => state.showLogin);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { user, role } = useAuthStore();
-  console.log("user", user);
+  const { user, role, logout } = useAuthStore();
   const isAuthenticated = false;
 
   const toggleBurgerMenu = () => {
@@ -38,7 +37,7 @@ const NavBar = () => {
 
   const getDashboardPath = () => {
     if (role === "admin") return "/admin";
-    if (role === "user") return "/user";
+    if (role === "user" || role === "trainer") return "/user";
     return "/404";
   };
 
@@ -58,13 +57,16 @@ const NavBar = () => {
         {!user && <Button textType="LOG_IN" onClick={handleLoginClick} />}
         {user && (
           <Link to={getDashboardPath()}>
-            <button onClick={handleUserIconCLick}>
+            <button
+              onClick={handleUserIconCLick}
+              className={styles.toProfileBtn}
+            >
               <img
-                className={styles.iconButton}
+                className={styles.toProfileBtn__icon}
                 src="/icon/user.svg"
                 alt="User"
               />
-              <span className={styles.username}>ololo</span>
+              {/* <span className={styles.toProfileBtn__username}>ololo</span> */}
             </button>
           </Link>
         )}

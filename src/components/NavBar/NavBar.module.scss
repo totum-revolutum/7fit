@@ -24,17 +24,15 @@
     }
   }
 
-  .iconButton {
-    cursor: pointer;
-    width: 25px;
+  .toProfileBtn {
+    display: flex;
+    gap: 5px;
+    align-items: center;
 
-    // @media (min-width: $tablet) {
-    //   width: 25px;
-    // }
-
-    // @media (min-width: $desktop) {
-    //   width: 25px;
-    // }
+    &_ .icon {
+      cursor: pointer;
+      width: toRem(25);
+    }
   }
 
   .burger {
