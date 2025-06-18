@@ -1,0 +1,22 @@
+@use "../../styles/utils/functions" as *;
+@use "../../styles/utils/variables" as *;
+
+.admin {
+  margin-block: toRem(95);
+}
+
+.headline {
+  margin-bottom: toRem(65);
+}
+
+.dashboardWrapper {
+  display: flex;
+}
+
+.sidebar {
+  width: 30%;
+}
+
+.mainContent {
+  width: 70%;
+}
