@@ -66,7 +66,6 @@ const NavBar = () => {
                 src="/icon/user.svg"
                 alt="User"
               />
-              {/* <span className={styles.toProfileBtn__username}>ololo</span> */}
             </button>
           </Link>
         )}
