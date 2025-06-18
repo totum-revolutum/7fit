@@ -9,7 +9,7 @@ export const CONTACTS = [
 export const SOCIAL_LINKS = [
   {
     name: "Instagram",
-    href: "https://instagram.com",
+    href: "https://www.instagram.com/sevenfit_kyiv?igsh=MTJqb2R1a2Vxenl5bw==",
     icon: "/icon/instagram.svg",
   },
   {

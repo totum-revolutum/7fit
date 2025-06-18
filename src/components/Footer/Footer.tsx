@@ -10,7 +10,7 @@ export const Footer = () => {
           <Link to="/" className={styles.footer__logo}>
             <img
               alt="Логотип"
-              src="/images/logo/logo124.svg"
+              src="/images/logo/logo113.svg"
               className={styles.footer__img}
             />
           </Link>
