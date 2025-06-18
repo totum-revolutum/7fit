@@ -63,7 +63,6 @@ const useAuthStore = create<AuthState>((set) => ({
       return;
     }
 
-    // fallback: get current session manually
     const session = await getCurrentSession();
 
     if (session?.user) {

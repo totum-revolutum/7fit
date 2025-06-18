@@ -1,0 +1,139 @@
+@use "@styles/utils/functions" as *;
+@use "@styles/utils/variables" as *;
+
+.scheduleSection {
+  margin-block: toRem(95);
+}
+
+.headline {
+  margin-bottom: toRem(65);
+}
+
+.schedule {
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: toRem(15);
+
+    &__left {
+      display: flex;
+      align-items: center;
+      gap: toRem(15);
+    }
+
+    button {
+      background: none;
+      color: white;
+      border: 1px solid $neon-violet-color;
+      border-radius: toRem(8);
+      padding: toRem(6) toRem(12);
+      cursor: pointer;
+    }
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 60px repeat(7, 1fr);
+    border-bottom: 1px solid #222;
+    font-weight: bold;
+  }
+
+  &__headerCell {
+    text-align: center;
+    padding: toRem(8);
+    border-left: 1px solid #222;
+
+    div {
+      font-size: toRem(12);
+      color: #ccc;
+    }
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 60px repeat(7, 1fr);
+    height: 50px;
+    border-bottom: 1px solid #222;
+  }
+
+  &__timeCell {
+    font-size: toRem(13);
+    color: #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #222;
+  }
+
+  &__cell {
+    border-left: 1px solid #222;
+    transition: background 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      background: #333;
+    }
+  }
+}
+
+.busy {
+  background-color: $neon-violet-color;
+  pointer-events: none;
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal {
+  background: $secondary-bg-color;
+  font-family: "Roboto", sans-serif;
+  padding: toRem(24);
+  border-radius: toRem(8);
+  width: toRem(320);
+  display: flex;
+  flex-direction: column;
+  gap: toRem(12);
+
+  select {
+    padding: toRem(8);
+    font-size: toRem(14);
+    background: #333;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 4px;
+  }
+}
+
+.filterButton {
+  background: transparent;
+  border: 1px solid #ccc;
+  padding: toRem(6) toRem(12);
+  border-radius: toRem(8);
+  cursor: pointer;
+  margin-left: toRem(8);
+  transition: background 0.3s;
+}
+
+.activeWorkout {
+  background: $neon-violet-color !important;
+  color: white !important;
+  border-color: $neon-violet-color !important;
+}
+
+.today {
+  border: 1px solid $neon-violet-color;
+  border-radius: toRem(8);
+}
+
+.cornerCell {
+  background: transparent;
+  pointer-events: none;
+}
