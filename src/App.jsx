@@ -1,6 +1,7 @@
 import { Layout } from "@/components/Layout";
 import Home from "./pages/Home.tsx";
 import { NotFound } from "./pages/NotFound";
+import { Agreement } from "./pages/Agreement";
 import { NavBar } from "@/components/NavBar";
 import { LoginModal } from "@components/LoginModals";
 import { AdminDashboard } from "@/components/AdminDashboard";
@@ -47,6 +48,7 @@ function App() {
             }
           />
 
+          <Route path="/agreement" element={<Agreement />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
 
