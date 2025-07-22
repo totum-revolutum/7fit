@@ -1,5 +1,6 @@
 @use "@styles/utils/variables" as *;
 @use "@styles/utils/functions" as *;
+@use "sass:color";
 
 .feedbackWrapper {
   width: 100%;
@@ -41,7 +42,7 @@
     border: 1px solid $neon-violet-color;
     border-radius: 8px;
     color: white;
-    background-color: transparentize($secondary-bg-color, 0.4);
+    background-color: color.adjust($secondary-bg-color, $alpha: -0.4);
 
     &::placeholder {
       color: $description-text-color;
