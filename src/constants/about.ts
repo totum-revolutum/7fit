@@ -1,10 +1,10 @@
 export const images = [
-  { src: "/images/about/1.png", alt: "EMS тренування 1" },
-  { src: "/images/about/2.png", alt: "EMS тренування 2" },
-  { src: "/images/about/3.png", alt: "EMS тренування 3" },
-  { src: "/images/about/1.png", alt: "EMS тренування 1" },
-  { src: "/images/about/2.png", alt: "EMS тренування 2" },
-  { src: "/images/about/3.png", alt: "EMS тренування 3" },
+  { src: "/images/about/1.jfif", alt: "EMS тренування 1" },
+  { src: "/images/about/2.jfif", alt: "EMS тренування 2" },
+  { src: "/images/about/3.jfif", alt: "EMS тренування 3" },
+  { src: "/images/about/1.jfif", alt: "EMS тренування 1" },
+  { src: "/images/about/2.jfif", alt: "EMS тренування 2" },
+  { src: "/images/about/3.jfif", alt: "EMS тренування 3" },
 ];
 
 export const aboutBenefits = [
@@ -16,9 +16,9 @@ export const aboutBenefits = [
   },
   {
     icon: "/icon/dumbbell.svg",
-    title: "Гарне тіло та відмінне самопочуття",
+    title: "Швидке відновлення ",
     description:
-      "Тренування спалює калорії та підвищує тонус м'язів. Зміцнює тіло та скульптурує його, покращуючи стан та якість шкіри",
+      " Завдяки тому що EMS активує глибокі мязи та покращує кровообіг, відновлення після занять проходить швидше",
   },
   {
     icon: "/icon/clock.svg",
