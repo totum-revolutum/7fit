@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import styles from "./LoginModal.module.scss";
 import useAuthStore from "@stores/authStore";
 import useUIStore from "@stores/uiStore";
@@ -6,6 +7,7 @@ import useUIStore from "@stores/uiStore";
 const LoginModal = () => {
   const [mode, setMode] = useState<"login" | "register">("login");
   const [email, setEmail] = useState("");
+  const [agreed, setAgreed] = useState(false);
   const [password, setPassword] = useState("");
   const { login, register, loading, error, user } = useAuthStore();
   const closeLogin = useUIStore((state) => state.closeLogin);
@@ -15,6 +17,11 @@ const LoginModal = () => {
     e.preventDefault();
     if (!email.trim() || !password.trim()) {
       alert("Будь ласка, заповніть всі поля.");
+      return;
+    }
+
+    if (mode === "register" && !agreed) {
+      alert("Будь ласка, підтвердіть користувацьку угоду.");
       return;
     }
 
@@ -44,7 +51,10 @@ const LoginModal = () => {
     <div className={styles.modalOverlay} onClick={handleBackdropClick}>
       <div ref={modalRef} className={styles.modal}>
         <form onSubmit={handleSubmit}>
-          <h2>{mode === "login" ? "Вхід до акаунту" : "Реєстрація"}</h2>
+          <h2 className={styles.title}>
+            {mode === "login" ? "Вхід до акаунту" : "Реєстрація"}
+          </h2>
+
           <input
             type="email"
             placeholder="Email"
@@ -52,6 +62,7 @@ const LoginModal = () => {
             onChange={(e) => setEmail(e.target.value)}
             className={styles.input}
           />
+
           <input
             type="password"
             placeholder="Пароль"
@@ -59,6 +70,26 @@ const LoginModal = () => {
             onChange={(e) => setPassword(e.target.value)}
             className={styles.input}
           />
+
+          {mode === "register" && (
+            <div className={styles.checkboxAgreement}>
+              <input
+                type="checkbox"
+                checked={agreed}
+                onChange={(e) => setAgreed(e.target.checked)}
+                required
+              />
+              Я погоджуюсь з{" "}
+              <Link
+                to="/agreement"
+                className={styles.checkboxAgreement__link}
+                onClick={closeLogin}
+              >
+                користувацькою угодою
+              </Link>
+            </div>
+          )}
+
           <button type="submit" disabled={loading} className={styles.button}>
             {loading
               ? "Завантаження..."
@@ -66,6 +97,7 @@ const LoginModal = () => {
               ? "Увійти"
               : "Зареєструватися"}
           </button>
+
           <p className={styles.switch}>
             {mode === "login" ? (
               <>

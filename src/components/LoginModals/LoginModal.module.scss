@@ -1,4 +1,6 @@
-/* src/components/AuthModal/AuthModal.module.scss */
+@use "../../styles/utils/functions" as *;
+@use "../../styles/utils/variables" as *;
+
 .modalOverlay {
   position: fixed;
   inset: 0;
@@ -19,6 +21,23 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
   position: relative;
   z-index: 1001;
+}
+
+.button {
+  width: 100%;
+  cursor: pointer;
+  padding: toRem(8) toRem(18);
+  font-weight: $semiBold;
+  border-radius: toRem(6);
+  font-size: 14px;
+  background-color: $neon-violet-color;
+
+  transition: all $transitionDuration;
+
+  &:hover {
+    background-color: #7e00ff;
+    color: #fff;
+  }
 }
 
 .closeButton {
@@ -51,6 +70,8 @@
 }
 
 .input {
+  margin-bottom: toRem(15);
+  width: 100%;
   padding: 10px 14px;
   font-size: 14px;
   border-radius: 6px;
@@ -91,4 +112,22 @@
   color: #e53935;
   margin-top: 10px;
   font-size: 0.9rem;
+}
+
+.checkboxAgreement {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  font-size: 12px;
+  line-height: 12px;
+
+  &__link {
+    color: #2563eb;
+    text-decoration: underline;
+
+    &:hover {
+      color: #1d4ed8;
+    }
+  }
 }
