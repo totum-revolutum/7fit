@@ -24,19 +24,20 @@ const Coaches = () => {
         </div>
         <div className={styles.coaches}>
           {coaches.map((coach, index) => (
-            <div className={styles.coach} key={index}>
+            <div
+              className={styles.coach}
+              key={index}
+              onClick={() => setSelectedCoach(coach)}
+            >
               <img
                 src={coach.src}
                 alt={coach.alt}
                 className={styles.coach__img}
               />
 
-              <button
-                onClick={() => setSelectedCoach(coach)}
-                className={`${styles.coach__name} style-uppercase-text`}
-              >
+              <div className={`${styles.coach__name} style-uppercase-text`}>
                 {coach.name}
-              </button>
+              </div>
             </div>
           ))}
         </div>

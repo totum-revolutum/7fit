@@ -23,8 +23,8 @@ const CoachCard = ({ coach, onClose }: CoachModalProps) => {
         <h2 className={`${styles.modal__name} style-uppercase-text`}>
           {coach.name}
         </h2>
-        <p className={`${styles.modal__info} .style-body-text`}>{coach.info}</p>
-        <button onClick={onClose}>Закрити</button>
+        <p className={`${styles.modal__info} style-body-text`}>{coach.info}</p>
+        <button className={styles.closeBtn} onClick={onClose}>Закрити</button>
       </div>
     </div>
   );
