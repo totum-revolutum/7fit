@@ -9,7 +9,7 @@ const LoginModal = () => {
   const [email, setEmail] = useState("");
   const [agreed, setAgreed] = useState(false);
   const [password, setPassword] = useState("");
-  const { login, register, loading, error, user } = useAuthStore();
+  const { login, register, loading, error, user, role } = useAuthStore();
   const closeLogin = useUIStore((state) => state.closeLogin);
   const modalRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
@@ -31,17 +31,24 @@ const LoginModal = () => {
     } else {
       await register(email, password);
     }
-
-    setEmail("");
-    setPassword("");
   };
 
   useEffect(() => {
-    if (user) {
+    if (user && role) {
       closeLogin();
-      navigate(`/profile/${user.id}`);
+
+      // Перенаправлення залежно від ролі
+      if (role === "admin") {
+        navigate("/admin", { replace: true });
+      } else {
+        navigate(`/profile/${user.id}`, { replace: true });
+      }
+
+      // Очищення форми
+      setEmail("");
+      setPassword("");
     }
-  }, [user, closeLogin, navigate]);
+  }, [user, role, closeLogin, navigate]);
 
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
