@@ -29,6 +29,8 @@ const useAuthStore = create<AuthState>((set) => ({
     const session = data?.session ?? null;
     const role = user ? await fetchUserRole(user.id) : null;
 
+    console.log("Login - User:", user?.id, "Role:", role);
+
     if (error) {
       console.error("Login error:", error.message);
     }
@@ -84,6 +86,8 @@ const useAuthStore = create<AuthState>((set) => ({
     const session = await getCurrentSession();
     const user = session?.user ?? null;
     const role = user ? await fetchUserRole(user.id) : null;
+
+    console.log("getCurrentUser - User:", user?.id, "Role:", role);
 
     set({ user, session, role });
   },

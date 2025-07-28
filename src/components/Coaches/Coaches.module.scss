@@ -36,7 +36,7 @@
   // На десктопі — 4 в ряд (тобто grid по рядках)
   @media (min-width: $desktop) {
     grid-auto-flow: row; // переключаємось на рядки
-    grid-template-columns: repeat(4, 1fr); // 4 в ряд
+    grid-template-columns: repeat(3, 1fr); // 4 в ряд
     grid-template-rows: none;
     column-gap: toRem(20);
   }

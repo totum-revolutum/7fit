@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./LoginModal.module.scss";
 import useAuthStore from "@stores/authStore";
 import useUIStore from "@stores/uiStore";
@@ -12,6 +12,7 @@ const LoginModal = () => {
   const { login, register, loading, error, user } = useAuthStore();
   const closeLogin = useUIStore((state) => state.closeLogin);
   const modalRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,8 +39,9 @@ const LoginModal = () => {
   useEffect(() => {
     if (user) {
       closeLogin();
+      navigate(`/profile/${user.id}`);
     }
-  }, [user, closeLogin]);
+  }, [user, closeLogin, navigate]);
 
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (modalRef.current && !modalRef.current.contains(e.target as Node)) {

@@ -14,5 +14,6 @@ export async function logout() {
 
 export async function getCurrentSession() {
   const { data } = await supabase.auth.getSession();
+  console.log("current data", data);
   return data.session;
 }

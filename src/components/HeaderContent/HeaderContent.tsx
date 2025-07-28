@@ -27,7 +27,7 @@ const HeaderContent = () => (
         </div>
       ))}
     </div>
-    <Button textType="GET_STARTED" />
+    {/* <Button textType="GET_STARTED" /> */}
   </div>
 );
 

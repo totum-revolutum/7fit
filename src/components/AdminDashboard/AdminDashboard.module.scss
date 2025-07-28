@@ -7,10 +7,15 @@
 
 .headline {
   margin-bottom: toRem(65);
+
+  &__title {
+    margin-bottom: toRem(30);
+  }
 }
 
 .dashboardWrapper {
   display: flex;
+  gap: toRem(30);
 }
 
 .sidebar {

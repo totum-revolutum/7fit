@@ -1,5 +1,5 @@
 {
-  "name": "ems-gym-site",
+  "name": "SevenFit",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -9,6 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/material": "^7.2.0",
     "@supabase/supabase-js": "^2.49.8",
     "@tailwindcss/vite": "^4.1.4",
     "classnames": "^2.5.1",

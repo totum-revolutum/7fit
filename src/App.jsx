@@ -4,17 +4,29 @@ import { NotFound } from "./pages/NotFound";
 import { Agreement } from "./pages/Agreement";
 import { NavBar } from "@/components/NavBar";
 import { LoginModal } from "@components/LoginModals";
+import AdminRoutes from "./routes/AdminRoutes";
 import { AdminDashboard } from "@/components/AdminDashboard";
-import { UserDashboard } from "@/components/UserDashboard";
+import { ProfilePage } from "./pages/profile";
 import PrivateRoute from "./routes/PrivateRoute";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import useUIStore from "@/stores/uiStore";
 import useAuthStore from "@stores/authStore";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
+function UserRedirect() {
+  const { user } = useAuthStore();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (user?.id) {
+      navigate(`/profile/${user.id}`, { replace: true });
+    }
+  }, [user, navigate]);
+  return null;
+}
 
 function App() {
   const showLogin = useUIStore((state) => state.showLogin);
-  const closeLogin = useUIStore((state) => state.closeLogin);
   const openLogin = useUIStore((state) => state.openLogin);
   const getCurrentUser = useAuthStore((state) => state.getCurrentUser);
 
@@ -31,10 +43,10 @@ function App() {
           <Route path="/" element={<Home />} />
 
           <Route
-            path="/admin"
+            path="/admin/*"
             element={
               <PrivateRoute allowedRoles={["admin"]} onAuthFail={openLogin}>
-                <AdminDashboard />
+                <AdminRoutes /> {/* Вставляємо роутер з Outlet-структурою */}
               </PrivateRoute>
             }
           />
@@ -42,8 +54,23 @@ function App() {
           <Route
             path="/user"
             element={
-              <PrivateRoute allowedRoles={["user"]} onAuthFail={openLogin}>
-                <UserDashboard />
+              <PrivateRoute
+                allowedRoles={["user", "trainer"]}
+                onAuthFail={openLogin}
+              >
+                <UserRedirect />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/profile/:id"
+            element={
+              <PrivateRoute
+                allowedRoles={["admin", "user", "trainer"]}
+                onAuthFail={openLogin}
+              >
+                <ProfilePage />
               </PrivateRoute>
             }
           />

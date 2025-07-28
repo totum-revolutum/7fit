@@ -10,27 +10,93 @@ export const fetchTrainers = async () => {
 };
 
 export const fetchWorkoutTypes = async () => {
-  const { data, error } = await supabase.from("workout").select("*");
+  const { data, error } = await supabase
+    .from("workout")
+    .select("workout_id, workout_type");
 
   if (error) throw error;
   return data;
 };
 
-export const fetchEvents = async (workoutTypeId?: string) => {
-  let query = supabase.from("events").select("*");
-  if (workoutTypeId) {
-    query = query.eq("workout_id", workoutTypeId);
-  }
+export const fetchEvents = async (startDate?: string, endDate?: string) => {
+  const { data, error } = await supabase
+    .from("events")
+    .select("*")
+    .gte("start_time", startDate)
+    .lt("start_time", endDate);
 
-  const { data, error } = await query;
-  console.log("data", data);
-
-  if (error) {
-    console.error("Помилка при отриманні подій:", error);
-    throw error;
-  }
-
+  if (error) throw error;
   return data;
+};
+
+export const fetchUsers = async () => {
+  console.log("Fetching users from user_data...");
+  
+  // Спочатку отримуємо користувачів з user_data
+  const { data: usersData, error: usersError } = await supabase
+    .from("user_data")
+    .select("user_id, user_name, user_email");
+
+  if (usersError) throw usersError;
+
+  console.log("Users from user_data:", usersData?.length);
+
+  // Потім отримуємо ролі з profiles
+  const { data: profilesData, error: profilesError } = await supabase
+    .from("profiles")
+    .select("id, role");
+
+  if (profilesError) throw profilesError;
+
+  console.log("Profiles data:", profilesData?.length);
+
+  // Створюємо мапу ролей
+  const roleMap = new Map();
+  profilesData?.forEach(profile => {
+    roleMap.set(profile.id, profile.role);
+  });
+
+  // Об'єднуємо дані
+  const result = usersData.map((user) => ({
+    user_id: user.user_id,
+    user_name: user.user_name,
+    user_email: user.user_email,
+    role: roleMap.get(user.user_id) || null,
+  }));
+
+  console.log("Final users with roles:", result.length);
+  return result;
+};
+
+export const fetchUsersForAdminSearch = async (query: string) => {
+  // Спочатку отримуємо користувачів з user_data
+  const { data: usersData, error: usersError } = await supabase
+    .from("user_data")
+    .select("user_id, user_name, user_email")
+    .ilike("user_name", `%${query}%`);
+
+  if (usersError) throw usersError;
+
+  // Потім отримуємо ролі з profiles
+  const { data: profilesData, error: profilesError } = await supabase
+    .from("profiles")
+    .select("id, role");
+
+  if (profilesError) throw profilesError;
+
+  // Створюємо мапу ролей
+  const roleMap = new Map();
+  profilesData?.forEach(profile => {
+    roleMap.set(profile.id, profile.role);
+  });
+
+  // Об'єднуємо дані
+  return usersData.map((user) => ({
+    user_id: user.user_id,
+    user_name: user.user_name,
+    user_email: user.user_email,
+    role: roleMap.get(user.user_id) || null,
+  }));
 };
 
 export const createEvent = async ({
