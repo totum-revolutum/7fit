@@ -1,0 +1,162 @@
+@use "@styles/utils/variables" as *;
+@use "@styles/utils/functions" as *;
+
+.adminContainer {
+  padding: toRem(20);
+  max-width: toRem(900);
+  margin: 0 auto;
+}
+
+h2 {
+  font-size: toRem(24);
+  margin-bottom: toRem(16);
+  text-transform: uppercase;
+  color: $neon-violet-color;
+}
+
+h3 {
+  font-size: toRem(18);
+  margin-bottom: toRem(12);
+  color: $neon-violet-color;
+}
+
+.addForm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: toRem(10);
+  margin-bottom: toRem(20);
+
+  select,
+  input {
+    padding: toRem(8) toRem(12);
+    border: 1px solid rgba(168, 85, 247, 0.5);
+    border-radius: toRem(8);
+    background-color: #111;
+    color: #fff;
+    font-size: toRem(14);
+    outline: none;
+    transition: border 0.2s;
+
+    &:focus {
+      border-color: $neon-violet-color;
+    }
+  }
+
+  button {
+    padding: toRem(8) toRem(16);
+    border:1px solid $neon-violet-color;
+    font-weight: 600;
+    border-radius: toRem(8);
+    cursor: pointer;
+    transition: all $transitionDuration;
+
+    &:hover {
+    background-color: $neon-violet-color;
+    color: #fff;  
+    }
+  }
+}
+
+.priceGroup{
+  background-color: $secondary-bg-color;
+  margin-block: toRem(10);
+  padding: toRem(10);
+}
+
+.priceRow {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: toRem(10);
+  margin-bottom: toRem(10);
+  align-items: center;
+
+  .rowContent {
+    display: flex;          
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    .textValue {
+      color: #fff;
+      font-size: toRem(14);
+      flex: 1;
+    }
+  }
+
+  .rowActions {
+    display: flex;
+    gap: toRem(10);
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  // коли редагуємо
+ &.editing {
+    .rowContent {
+      display: flex;
+      align-items: center;
+      gap: toRem(12); // відстань між елементами
+
+      select {
+        min-width: toRem(140);
+      }
+
+      .nameBlock {
+        display: flex;
+        align-items: center;
+        gap: toRem(8);
+
+        input[type="number"] {
+          width: toRem(80); // щоб не розтягувався
+        }
+      }
+
+      input[type="number"] {
+        width: toRem(100);
+      }
+
+      select,
+      input {
+        padding: toRem(8) toRem(12);
+        border: 1px solid rgba(168, 85, 247, 0.5);
+        border-radius: toRem(8);
+        background-color: #111;
+        color: #fff;
+        font-size: toRem(14);
+        outline: none;
+        transition: border 0.2s;
+
+        &:focus {
+          border-color: $neon-violet-color;
+        }
+      }
+    }
+
+    .rowActions {
+      margin-top: toRem(8);
+      display: flex;
+      gap: toRem(8);
+    }
+  }
+
+
+
+  button {
+  cursor: pointer;
+  padding: toRem(8) toRem(18);
+  font-weight: $semiBold;
+  border-radius: toRem(6);
+  font-size: 14px;
+  border:1px solid $neon-violet-color;
+  margin-inline: toRem(4); 
+
+
+  transition: all $transitionDuration;
+
+  &:hover {
+    background-color: $neon-violet-color;
+    color: #fff;  
+  }
+}
+}

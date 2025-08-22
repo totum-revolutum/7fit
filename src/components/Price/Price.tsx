@@ -6,32 +6,25 @@ import "swiper/css/navigation";
 
 import styles from "./Price.module.scss";
 import { PriceCard } from "@components/shared/PriceCard";
-import { boxingPrices, emsPrices, fitnessPrices } from "@constants/price";
 import { GiBoxingGlove } from "react-icons/gi";
 import { FaDumbbell, FaHeartbeat } from "react-icons/fa";
+import { usePricesStore } from "@stores/pricesStore";
 
-const cardData = [
-  {
-    title: "ДЗЮДО/БОКС",
-    icon: <GiBoxingGlove size={32} />,
-    prices: boxingPrices,
-  },
-  {
-    title: "EMS",
-    icon: <FaHeartbeat size={32} />,
-    prices: emsPrices,
-  },
-  {
-    title: "ФІТНЕС",
-    icon: <FaDumbbell size={32} />,
-    prices: fitnessPrices,
-  },
-];
+const categoryIcons: Record<string, JSX.Element> = {
+  "ДЗЮДО/БОКС": <GiBoxingGlove size={32} />,
+  "EMS": <FaHeartbeat size={32} />,
+  "ФІТНЕС": <FaDumbbell size={32} />,
+};
 
 const Price = () => {
+  const { prices, fetchPrices } = usePricesStore();
   const [windowWidth, setWindowWidth] = useState<number>(
     typeof window !== "undefined" ? window.innerWidth : 0
   );
+
+  useEffect(() => {
+    fetchPrices();
+  }, [fetchPrices]);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -41,6 +34,25 @@ const Price = () => {
 
   const isSliderActive = windowWidth >= 850 && windowWidth < 1240;
 
+  // групування по категоріям
+  const grouped = prices.reduce<Record<string, typeof prices>>((acc, item) => {
+    if (!acc[item.category]) acc[item.category] = [];
+    acc[item.category].push(item);
+    return acc;
+  }, {});
+
+  // сортування всередині категорії
+  const sortedCategories = Object.entries(grouped).map(([category, items]) => {
+    const sorted = [...items].sort((a, b) => {
+      if (a.name.includes("Пробне")) return -1;
+      if (b.name.includes("Пробне")) return 1;
+      const numA = parseInt(a.name);
+      const numB = parseInt(b.name);
+      return (numA || 0) - (numB || 0);
+    });
+    return { category, prices: sorted };
+  });
+
   return (
     <section id="price" className={styles.priceSection}>
       <div className={styles.headline}>
@@ -48,12 +60,14 @@ const Price = () => {
           Ціни тренувань
         </div>
       </div>
+
       {isSliderActive && (
         <div className={styles.navigation}>
           <div className={`${styles.navButton} ${styles.prev}`}></div>
           <div className={`${styles.navButton} ${styles.next}`}></div>
         </div>
       )}
+
       {isSliderActive ? (
         <Swiper
           modules={[Navigation]}
@@ -66,24 +80,24 @@ const Price = () => {
           slidesPerView={2}
           className={styles.cardsWrapper}
         >
-          {cardData.map((card, idx) => (
-            <SwiperSlide key={idx}>
+          {sortedCategories.map(({ category, prices }) => (
+            <SwiperSlide key={category}>
               <PriceCard
-                title={card.title}
-                icon={card.icon}
-                prices={card.prices}
+                title={category}
+                icon={categoryIcons[category]}
+                prices={prices}
               />
             </SwiperSlide>
           ))}
         </Swiper>
       ) : (
         <div className={styles.cards}>
-          {cardData.map((card, idx) => (
+          {sortedCategories.map(({ category, prices }) => (
             <PriceCard
-              key={idx}
-              title={card.title}
-              icon={card.icon}
-              prices={card.prices}
+              key={category}
+              title={category}
+              icon={categoryIcons[category]}
+              prices={prices}
             />
           ))}
         </div>
@@ -93,62 +107,3 @@ const Price = () => {
 };
 
 export default Price;
-
-// import styles from "./Price.module.scss";
-// import { PriceCard } from "@components/shared/PriceCard";
-// import { boxingPrices, emsPrices, fitnessPrices } from "@constants/price";
-// import { GiBoxingGlove } from "react-icons/gi";
-// import { FaDumbbell, FaHeartbeat } from "react-icons/fa";
-
-// const Price = () => {
-//   return (
-//     <section id="price" className={styles.priceSection}>
-//       <div className={styles.headline}>
-//         <div className={`${styles.headline__title} style-h1`}>
-//           Ціни тренувань
-//         </div>
-//       </div>
-//       <div className={styles.cards}>
-//         <PriceCard
-//           title="ДЗЮДО/БОКС"
-//           icon={<GiBoxingGlove size={32} />}
-//           prices={boxingPrices}
-//         />
-//         <PriceCard
-//           title="EMS"
-//           icon={<FaHeartbeat size={32} />}
-//           prices={emsPrices}
-//         />
-//         <PriceCard
-//           title="ФІТНЕС"
-//           icon={<FaDumbbell size={32} />}
-//           prices={fitnessPrices}
-//         />
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default Price;
-
-// import styles from "./Price.module.scss";
-
-// export const Price = () => {
-//   return (
-//     <section>
-//       <div className={styles.headline}>
-//         <div className={`${styles.headline__title} style-h1`}>
-//           Ціни тренувань
-//         </div>
-//         <div className={styles.headline__subtitle}></div>
-//       </div>
-//       <div className={styles.priceWrapper}>
-//         <div className={styles.fitnes}></div>
-//         <div className={styles.ems}></div>
-//         <div className={styles.box}></div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default Price;
