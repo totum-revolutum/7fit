@@ -13,7 +13,7 @@ import { usePricesStore } from "@stores/pricesStore";
 const categoryIcons: Record<string, JSX.Element> = {
   "ДЗЮДО/БОКС": <GiBoxingGlove size={32} />,
   "EMS": <FaHeartbeat size={32} />,
-  "ФІТНЕС": <FaDumbbell size={32} />,
+  "EMS-massage": <FaDumbbell size={32} />,
 };
 
 const Price = () => {

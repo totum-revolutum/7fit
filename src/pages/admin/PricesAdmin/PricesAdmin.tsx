@@ -4,7 +4,7 @@ import { usePricesStore } from "@stores/pricesStore";
 import type { PriceItem } from "@api/prices";
 import { buildTrainingName, formatPriceUAH, parseCountFromName } from "@features/format";
 
-const CATEGORIES = ["ДЗЮДО/БОКС", "EMS", "EMS МАССАЖ"] as const;
+const CATEGORIES = ["ДЗЮДО/БОКС", "EMS", "EMS-massage"] as const;
 
 type RowEditState = {
   id: number;
@@ -42,12 +42,19 @@ const PricesAdmin = () => {
 
   const validateAdd = () => {
     if (!newCategory) return "Оберіть категорію";
-    if (!newIsTrial) {
+
+    const priceNum = Number(String(newPrice).replace(/[^\d]/g, ""));
+    if (!Number.isFinite(priceNum) || priceNum <= 0) return "Ціна має бути додатним числом";
+
+    if (newCategory !== "EMS-massage" && !newIsTrial) {
       const n = Number(newCount);
       if (!Number.isFinite(n) || n <= 0) return "Кількість має бути додатним числом";
     }
-    const priceNum = Number(String(newPrice).replace(/[^\d]/g, ""));
-    if (!Number.isFinite(priceNum) || priceNum <= 0) return "Ціна має бути додатним числом";
+
+    if (newCategory === "EMS-massage" && !newCount.trim()) {
+      return "Введіть назву масажу";
+    }
+
     return null;
   };
 
@@ -59,9 +66,14 @@ const PricesAdmin = () => {
     }
     setFormError(null);
 
-    const name = newIsTrial
-      ? buildTrainingName({ isTrial: true })
-      : buildTrainingName({ count: Number(newCount) });
+    let name: string;
+    if (newCategory === "EMS-massage") {
+      name = newCount.trim();
+    } else {
+      name = newIsTrial
+        ? buildTrainingName({ isTrial: true })
+        : buildTrainingName({ count: Number(newCount) });
+    }
 
     const price = formatPriceUAH(newPrice);
 
@@ -80,7 +92,11 @@ const PricesAdmin = () => {
       [row.id]: {
         id: row.id,
         category: row.category,
-        rawName: parsed.isTrial ? "Пробне" : String(parsed.count ?? ""),
+        rawName: row.category === "EMS-massage"
+          ? row.name
+          : parsed.isTrial
+            ? "Пробне"
+            : String(parsed.count ?? ""),
         rawPrice: row.price.replace(/[^\d]/g, ""),
         isTrial: parsed.isTrial,
       },
@@ -102,7 +118,10 @@ const PricesAdmin = () => {
     if (!Number.isFinite(priceNum) || priceNum <= 0) return;
 
     let name: string;
-    if (r.isTrial) {
+    if (r.category === "EMS-massage") {
+      if (!r.rawName.trim()) return;
+      name = r.rawName.trim(); 
+    } else if (r.isTrial) {
       name = buildTrainingName({ isTrial: true });
     } else {
       const count = Number(r.rawName.replace(/[^\d]/g, ""));
@@ -134,23 +153,35 @@ const PricesAdmin = () => {
           ))}
         </select>
 
-        <label className={styles.checkboxLabel}>
+        {newCategory === "EMS-massage" ? (
           <input
-            type="checkbox"
-            checked={newIsTrial}
-            onChange={(e) => setNewIsTrial(e.target.checked)}
+            type="text"
+            className={styles.input}
+            placeholder="Назва масажу"
+            value={newCount}
+            onChange={(e) => setNewCount(e.target.value)}
           />
-          Пробне
-        </label>
+        ) : (
+          <>
+            <label className={styles.checkboxLabel}>
+              <input
+                type="checkbox"
+                checked={newIsTrial}
+                onChange={(e) => setNewIsTrial(e.target.checked)}
+              />
+              Пробне
+            </label>
 
-        <input
-          type="number"
-          className={styles.input}
-          placeholder="Кількість"
-          value={newCount}
-          onChange={(e) => setNewCount(e.target.value)}
-          disabled={newIsTrial}
-        />
+            <input
+              type="number"
+              className={styles.input}
+              placeholder="Кількість"
+              value={newCount}
+              onChange={(e) => setNewCount(e.target.value)}
+              disabled={newIsTrial}
+            />
+          </>
+        )}
 
         <input
           type="number"
@@ -202,25 +233,11 @@ const PricesAdmin = () => {
 
                     {/* NAME */}
                     {edit ? (
-                      <div className={styles.nameBlock}>
-                        <label style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                          <input
-                            type="checkbox"
-                            checked={edit.isTrial}
-                            onChange={(e) =>
-                              setEditRows((s) => ({
-                                ...s,
-                                [row.id]: { ...edit, isTrial: e.target.checked },
-                              }))
-                            }
-                          />
-                          Пробне
-                        </label>
+                      edit.category === "EMS-massage" ? (
                         <input
-                          type="number"
-                          placeholder="Кількість"
-                          disabled={edit.isTrial}
-                          value={edit.isTrial ? "" : edit.rawName}
+                          type="text"
+                          placeholder="Назва масажу"
+                          value={edit.rawName}
                           onChange={(e) =>
                             setEditRows((s) => ({
                               ...s,
@@ -228,7 +245,35 @@ const PricesAdmin = () => {
                             }))
                           }
                         />
-                      </div>
+                      ) : (
+                        <div className={styles.nameBlock}>
+                          <label style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                            <input
+                              type="checkbox"
+                              checked={edit.isTrial}
+                              onChange={(e) =>
+                                setEditRows((s) => ({
+                                  ...s,
+                                  [row.id]: { ...edit, isTrial: e.target.checked },
+                                }))
+                              }
+                            />
+                            Пробне
+                          </label>
+                          <input
+                            type="number"
+                            placeholder="Кількість"
+                            disabled={edit.isTrial}
+                            value={edit.isTrial ? "" : edit.rawName}
+                            onChange={(e) =>
+                              setEditRows((s) => ({
+                                ...s,
+                                [row.id]: { ...edit, rawName: e.target.value },
+                              }))
+                            }
+                          />
+                        </div>
+                      )
                     ) : (
                       <div className={styles.textValue}>{row.name}</div>
                     )}
@@ -251,7 +296,7 @@ const PricesAdmin = () => {
                     )}
                   </div>
 
-                  {/* ACTIONS окремим блоком під низом */}
+                  {/* ACTIONS */}
                   <div className={styles.rowActions}>
                     {edit ? (
                       <>
@@ -266,7 +311,6 @@ const PricesAdmin = () => {
                     )}
                   </div>
                 </div>
-
               );
             })
           ) : (
