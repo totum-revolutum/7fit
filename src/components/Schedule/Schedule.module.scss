@@ -80,6 +80,13 @@
       background-color: rgba(154, 52, 232, 0.2);
     }
   }
+
+  @media (max-width: 850px) {
+    &__month{
+      display: none;
+    }
+
+  }
 }
 
 .busy {
@@ -290,6 +297,23 @@
   // box-shadow: 0 0 12px rgba(162, 89, 255, 0.5);
   animation: fadeInOut 5s ease-in-out forwards;
 }
+
+.workoutSelect {
+  display: block;
+  width: 100%;
+  padding: toRem(6) toRem(12);
+  font-size: toRem(14);
+  background: $primary-color;
+  color: white;
+  border: 1px solid $neon-violet-color;
+  border-radius: toRem(8);
+
+  &:focus {
+    outline: none;
+    border-color: $neon-violet-color;
+  }
+}
+
 
 @keyframes fadeInOut {
   0% {

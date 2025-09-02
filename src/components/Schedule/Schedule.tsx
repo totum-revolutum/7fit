@@ -189,26 +189,41 @@ const WeeklyCalendar = () => {
         <div className={styles.schedule__nav}>
           <div className={styles.schedule__nav__left}>
             <button onClick={handlePrevWeek}>←</button>
-            <div className="style-uppercase-text">{currentMonth}</div>
+            <div className={`${styles.schedule__month} style-uppercase-text`}>{currentMonth}</div>
             <button onClick={handleNextWeek}>→</button>
             <button onClick={handleTodayClick}>Сьогодні</button>
           </div>
 
           <div className={styles.schedule__navRight}>
-            {workoutTypes.map((w) => (
-              <button
-                key={w.workout_id}
-                className={`${styles.filterButton} ${
-                  activeWorkoutTypeId === w.workout_id
-                    ? styles.activeWorkout
-                    : ""
-                }`}
-                onClick={() => setActiveWorkoutTypeId(w.workout_id)}
-              >
-                {w.workout_type}
-              </button>
-            ))}
+            {window.innerWidth >= 850 ? (
+              workoutTypes.map((w) => (
+                <button
+                  key={w.workout_id}
+                  className={`${styles.filterButton} ${
+                    activeWorkoutTypeId === w.workout_id
+                      ? styles.activeWorkout
+                      : ""
+                  }`}
+                  onClick={() => setActiveWorkoutTypeId(w.workout_id)}
+                >
+                  {w.workout_type}
+                </button>
+              ))
+            ) : (
+    <select
+      className={styles.workoutSelect}
+      value={activeWorkoutTypeId || ""}
+      onChange={(e) => setActiveWorkoutTypeId(e.target.value)}
+    >
+      {workoutTypes.map((w) => (
+        <option key={w.workout_id} value={w.workout_id}>
+          {w.workout_type}
+        </option>
+      ))}
+    </select>
+            )}
           </div>
+
         </div>
 
         <div className={styles.schedule__wrapper}>
