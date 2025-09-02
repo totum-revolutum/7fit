@@ -24,6 +24,9 @@
   border-radius: toRem(12);
   max-width: toRem(500);
 
+  max-height: 80vh;
+  overflow-y: auto;
+
   text-align: center;
   animation: fadeIn 0.3s ease;
 
@@ -35,6 +38,24 @@
 
   &__name {
     margin-bottom: toRem(15);
+  }
+
+    &::-webkit-scrollbar {
+    width: toRem(8);
+  }
+
+  &::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05); // фон треку
+    border-radius: toRem(8);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $neon-violet-color;
+    border-radius: toRem(8);
+
+    &:hover {
+      background: lighten($neon-violet-color, 10%);
+    }
   }
 }
 
