@@ -4,7 +4,7 @@ import { usePricesStore } from "@stores/pricesStore";
 import type { PriceItem } from "@api/prices";
 import { buildTrainingName, formatPriceUAH, parseCountFromName } from "@features/format";
 
-const CATEGORIES = ["ДЗЮДО/БОКС", "EMS", "ФІТНЕС"] as const;
+const CATEGORIES = ["ДЗЮДО/БОКС", "EMS", "EMS МАССАЖ"] as const;
 
 type RowEditState = {
   id: number;

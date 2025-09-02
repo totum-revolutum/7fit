@@ -1,10 +1,7 @@
 export const images = [
   { src: "/images/about/1.jfif", alt: "EMS тренування 1" },
-  { src: "/images/about/2.jfif", alt: "EMS тренування 2" },
-  { src: "/images/about/3.jfif", alt: "EMS тренування 3" },
-  { src: "/images/about/1.jfif", alt: "EMS тренування 1" },
-  { src: "/images/about/2.jfif", alt: "EMS тренування 2" },
-  { src: "/images/about/3.jfif", alt: "EMS тренування 3" },
+  { src: "/images/about/2.png", alt: "EMS тренування 2" },
+  { src: "/images/about/3.png", alt: "EMS тренування 3" },
 ];
 
 export const aboutBenefits = [
