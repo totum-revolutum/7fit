@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@components/shared/Button";
 import styles from "./Feedback.module.scss";
 import { useFeedbackStore } from "@stores/useFeedbackStore";
@@ -7,6 +7,8 @@ import { sendContactToSupabase, sendContactToTelegram } from "@api/feedbackApi";
 const Feedback = () => {
   const { name, phone, errors, setName, setPhone, validate, reset, setErrors } =
     useFeedbackStore();
+
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
   const handleChange = (e) => {
     const { name: fieldName, value } = e.target;
@@ -24,6 +26,9 @@ const Feedback = () => {
 
       await sendContactToTelegram(name, phone);
       console.log("Дані надіслані на Telegram");
+
+      setSuccessMessage("✅ Заявку відправлено!");
+      setTimeout(() => setSuccessMessage(null), 2000);
     } catch (error) {
       console.error("Помилка:", error);
     } finally {
@@ -75,6 +80,10 @@ const Feedback = () => {
           </div>
         </div>
         <Button textType="SEND" onClick={submitContacts} />
+
+        {successMessage && (
+          <div className={styles.successMessage}>{successMessage}</div>
+        )}
       </div>
     </section>
   );

@@ -80,3 +80,18 @@
   background-repeat: no-repeat;
   z-index: -1;
 }
+
+.successMessage {
+  margin-top: toRem(20);
+  padding: toRem(10) toRem(16);
+  border-radius: 8px;
+  background: rgba(34, 197, 94, 0.2);
+  border: 1px solid #22c55e;
+  color: #22c55e;
+  font-weight: $semiBold;
+  text-align: center;
+  animation: fadeIn 0.3s ease;
+
+  position: absolute;
+
+}
